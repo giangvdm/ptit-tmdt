@@ -6,3 +6,7 @@
 	Note: This is custom css. All custom styles (user styles) declare here.
 
 **********************************************************************************/
+
+.header__area .header__sidebar__right > li.shop_search {
+	padding-right: 25px;
+}

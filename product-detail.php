@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Shop-Single | Bookshop Responsive Bootstrap4 Template</title>
+	<title>Chi tiết sản phẩm</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -41,17 +41,18 @@
 		<!-- Start Search Popup -->
 		<?php include('include/search.php'); ?>
 		<!-- End Search Popup -->
+
         <!-- Start Bradcaump area -->
         <div class="ht__bradcaump__area bg-image--4">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bradcaump__inner text-center">
-                        	<h2 class="bradcaump-title">Shop Single</h2>
+                        	<h2 class="bradcaump-title">Chi tiết sản phẩm</h2>
                             <nav class="bradcaump-content">
-                              <a class="breadcrumb_item" href="index.php">Home</a>
+                              <a class="breadcrumb_item" href="index.php">Trang chủ</a>
                               <span class="brd-separetor">/</span>
-                              <span class="breadcrumb_item active">Shop Single</span>
+                              <span class="breadcrumb_item active">Chi tiết sản phẩm</span>
                             </nav>
                         </div>
                     </div>
@@ -107,8 +108,7 @@
         										<button class="tocart" type="submit" title="Add to Cart">Add to Cart</button>
         									</div>
 											<div class="product-addto-links clearfix">
-												<a class="wishlist" href="#"></a>
-												<a class="compare" href="#"></a>
+												<!-- "Add to Wishlist" and "Compare" were here -->
 											</div>
         								</div>
 										<div class="product_meta">
@@ -278,14 +278,14 @@
 									<!-- Start Single Product -->
 									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img src="images/books/1.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img src="images/books/2.jpg" alt="product image"></a>
+											<a class="first__img" href="product-detail.php"><img src="images/books/1.jpg" alt="product image"></a>
+											<a class="second__img animation1" href="product-detail.php"><img src="images/books/2.jpg" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 											</div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="single-product.html">robin parrish</a></h4>
+											<h4><a href="product-detail.php">robin parrish</a></h4>
 											<ul class="prize d-flex">
 												<li>$35.00</li>
 												<li class="old_prize">$35.00</li>
@@ -293,9 +293,7 @@
 											<div class="action">
 												<div class="actions_inner">
 													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-cart-full"></i></a></li>
 														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
 													</ul>
 												</div>
@@ -315,14 +313,14 @@
 									<!-- Start Single Product -->
 									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img src="images/books/3.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img src="images/books/4.jpg" alt="product image"></a>
+											<a class="first__img" href="product-detail.php"><img src="images/books/3.jpg" alt="product image"></a>
+											<a class="second__img animation1" href="product-detail.php"><img src="images/books/4.jpg" alt="product image"></a>
 											<div class="hot__box color--2">
 												<span class="hot-label">HOT</span>
 											</div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="single-product.html">The Remainng</a></h4>
+											<h4><a href="product-detail.php">The Remainng</a></h4>
 											<ul class="prize d-flex">
 												<li>$35.00</li>
 												<li class="old_prize">$35.00</li>
@@ -330,9 +328,7 @@
 											<div class="action">
 												<div class="actions_inner">
 													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-cart-full"></i></a></li>
 														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
 													</ul>
 												</div>
@@ -352,14 +348,14 @@
 									<!-- Start Single Product -->
 									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img src="images/books/7.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img src="images/books/8.jpg" alt="product image"></a>
+											<a class="first__img" href="product-detail.php"><img src="images/books/7.jpg" alt="product image"></a>
+											<a class="second__img animation1" href="product-detail.php"><img src="images/books/8.jpg" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">HOT</span>
 											</div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="single-product.html">Lando</a></h4>
+											<h4><a href="product-detail.php">Lando</a></h4>
 											<ul class="prize d-flex">
 												<li>$35.00</li>
 												<li class="old_prize">$50.00</li>
@@ -367,9 +363,7 @@
 											<div class="action">
 												<div class="actions_inner">
 													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-cart-full"></i></a></li>
 														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
 													</ul>
 												</div>
@@ -389,14 +383,14 @@
 									<!-- Start Single Product -->
 									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img src="images/books/9.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img src="images/books/10.jpg" alt="product image"></a>
+											<a class="first__img" href="product-detail.php"><img src="images/books/9.jpg" alt="product image"></a>
+											<a class="second__img animation1" href="product-detail.php"><img src="images/books/10.jpg" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">HOT</span>
 											</div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="single-product.html">Doctor Wldo</a></h4>
+											<h4><a href="product-detail.php">Doctor Wldo</a></h4>
 											<ul class="prize d-flex">
 												<li>$35.00</li>
 												<li class="old_prize">$35.00</li>
@@ -404,9 +398,7 @@
 											<div class="action">
 												<div class="actions_inner">
 													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-cart-full"></i></a></li>
 														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
 													</ul>
 												</div>
@@ -426,14 +418,14 @@
 									<!-- Start Single Product -->
 									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img src="images/books/11.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img src="images/books/2.jpg" alt="product image"></a>
+											<a class="first__img" href="product-detail.php"><img src="images/books/11.jpg" alt="product image"></a>
+											<a class="second__img animation1" href="product-detail.php"><img src="images/books/2.jpg" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALER</span>
 											</div>
 										</div>
 										<div class="product__content content--center content--center">
-											<h4><a href="single-product.html">Animals Life</a></h4>
+											<h4><a href="product-detail.php">Animals Life</a></h4>
 											<ul class="prize d-flex">
 												<li>$50.00</li>
 												<li class="old_prize">$35.00</li>
@@ -441,9 +433,7 @@
 											<div class="action">
 												<div class="actions_inner">
 													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-cart-full"></i></a></li>
 														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
 													</ul>
 												</div>
@@ -463,14 +453,14 @@
 									<!-- Start Single Product -->
 									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img src="images/books/1.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img src="images/books/6.jpg" alt="product image"></a>
+											<a class="first__img" href="product-detail.php"><img src="images/books/1.jpg" alt="product image"></a>
+											<a class="second__img animation1" href="product-detail.php"><img src="images/books/6.jpg" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALER</span>
 											</div>
 										</div>
 										<div class="product__content content--center content--center">
-											<h4><a href="single-product.html">Olio Madu</a></h4>
+											<h4><a href="product-detail.php">Olio Madu</a></h4>
 											<ul class="prize d-flex">
 												<li>$50.00</li>
 												<li class="old_prize">$35.00</li>
@@ -478,9 +468,7 @@
 											<div class="action">
 												<div class="actions_inner">
 													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-cart-full"></i></a></li>
 														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
 													</ul>
 												</div>
@@ -509,14 +497,14 @@
 									<!-- Start Single Product -->
 									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img src="images/books/1.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img src="images/books/2.jpg" alt="product image"></a>
+											<a class="first__img" href="product-detail.php"><img src="images/books/1.jpg" alt="product image"></a>
+											<a class="second__img animation1" href="product-detail.php"><img src="images/books/2.jpg" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALLER</span>
 											</div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="single-product.html">robin parrish</a></h4>
+											<h4><a href="product-detail.php">robin parrish</a></h4>
 											<ul class="prize d-flex">
 												<li>$35.00</li>
 												<li class="old_prize">$35.00</li>
@@ -524,9 +512,7 @@
 											<div class="action">
 												<div class="actions_inner">
 													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-cart-full"></i></a></li>
 														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
 													</ul>
 												</div>
@@ -546,14 +532,14 @@
 									<!-- Start Single Product -->
 									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img src="images/books/3.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img src="images/books/4.jpg" alt="product image"></a>
+											<a class="first__img" href="product-detail.php"><img src="images/books/3.jpg" alt="product image"></a>
+											<a class="second__img animation1" href="product-detail.php"><img src="images/books/4.jpg" alt="product image"></a>
 											<div class="hot__box color--2">
 												<span class="hot-label">HOT</span>
 											</div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="single-product.html">The Remainng</a></h4>
+											<h4><a href="product-detail.php">The Remainng</a></h4>
 											<ul class="prize d-flex">
 												<li>$35.00</li>
 												<li class="old_prize">$35.00</li>
@@ -561,9 +547,7 @@
 											<div class="action">
 												<div class="actions_inner">
 													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-cart-full"></i></a></li>
 														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
 													</ul>
 												</div>
@@ -583,14 +567,14 @@
 									<!-- Start Single Product -->
 									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img src="images/books/7.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img src="images/books/8.jpg" alt="product image"></a>
+											<a class="first__img" href="product-detail.php"><img src="images/books/7.jpg" alt="product image"></a>
+											<a class="second__img animation1" href="product-detail.php"><img src="images/books/8.jpg" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">HOT</span>
 											</div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="single-product.html">Lando</a></h4>
+											<h4><a href="product-detail.php">Lando</a></h4>
 											<ul class="prize d-flex">
 												<li>$35.00</li>
 												<li class="old_prize">$50.00</li>
@@ -598,9 +582,7 @@
 											<div class="action">
 												<div class="actions_inner">
 													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-cart-full"></i></a></li>
 														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
 													</ul>
 												</div>
@@ -620,14 +602,14 @@
 									<!-- Start Single Product -->
 									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img src="images/books/9.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img src="images/books/10.jpg" alt="product image"></a>
+											<a class="first__img" href="product-detail.php"><img src="images/books/9.jpg" alt="product image"></a>
+											<a class="second__img animation1" href="product-detail.php"><img src="images/books/10.jpg" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">HOT</span>
 											</div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="single-product.html">Doctor Wldo</a></h4>
+											<h4><a href="product-detail.php">Doctor Wldo</a></h4>
 											<ul class="prize d-flex">
 												<li>$35.00</li>
 												<li class="old_prize">$35.00</li>
@@ -635,9 +617,7 @@
 											<div class="action">
 												<div class="actions_inner">
 													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-cart-full"></i></a></li>
 														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
 													</ul>
 												</div>
@@ -657,14 +637,14 @@
 									<!-- Start Single Product -->
 									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img src="images/books/11.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img src="images/books/2.jpg" alt="product image"></a>
+											<a class="first__img" href="product-detail.php"><img src="images/books/11.jpg" alt="product image"></a>
+											<a class="second__img animation1" href="product-detail.php"><img src="images/books/2.jpg" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALER</span>
 											</div>
 										</div>
 										<div class="product__content content--center content--center">
-											<h4><a href="single-product.html">Animals Life</a></h4>
+											<h4><a href="product-detail.php">Animals Life</a></h4>
 											<ul class="prize d-flex">
 												<li>$50.00</li>
 												<li class="old_prize">$35.00</li>
@@ -672,9 +652,7 @@
 											<div class="action">
 												<div class="actions_inner">
 													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-cart-full"></i></a></li>
 														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
 													</ul>
 												</div>
@@ -694,14 +672,14 @@
 									<!-- Start Single Product -->
 									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img src="images/books/1.jpg" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img src="images/books/6.jpg" alt="product image"></a>
+											<a class="first__img" href="product-detail.php"><img src="images/books/1.jpg" alt="product image"></a>
+											<a class="second__img animation1" href="product-detail.php"><img src="images/books/6.jpg" alt="product image"></a>
 											<div class="hot__box">
 												<span class="hot-label">BEST SALER</span>
 											</div>
 										</div>
 										<div class="product__content content--center content--center">
-											<h4><a href="single-product.html">Olio Madu</a></h4>
+											<h4><a href="product-detail.php">Olio Madu</a></h4>
 											<ul class="prize d-flex">
 												<li>$50.00</li>
 												<li class="old_prize">$35.00</li>
@@ -709,9 +687,7 @@
 											<div class="action">
 												<div class="actions_inner">
 													<ul class="add_to_links">
-														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-														<li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-														<li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+														<li><a class="cart" href="cart.html"><i class="bi bi-shopping-cart-full"></i></a></li>
 														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
 													</ul>
 												</div>
