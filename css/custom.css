@@ -10,3 +10,7 @@
 .header__area .header__sidebar__right > li.shop_search {
 	padding-right: 25px;
 }
+
+.actions_inner {
+	margin-top: -30px;
+}

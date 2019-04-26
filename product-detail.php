@@ -84,16 +84,7 @@
         						</div>
         						<div class="col-lg-6 col-12">
         							<div class="product__info__main">
-        								<h1>Chaz Kangeroo Hoodie</h1>
-        								<div class="product-reviews-summary d-flex">
-        									<ul class="rating-summary d-flex">
-    											<li><i class="zmdi zmdi-star-outline"></i></li>
-    											<li><i class="zmdi zmdi-star-outline"></i></li>
-    											<li><i class="zmdi zmdi-star-outline"></i></li>
-    											<li class="off"><i class="zmdi zmdi-star-outline"></i></li>
-    											<li class="off"><i class="zmdi zmdi-star-outline"></i></li>
-        									</ul>
-        								</div>
+        								<h1>Chaz Kangeroo Hoodie</h1>	
         								<div class="price-box">
         									<span>$52.00</span>
         								</div>
@@ -112,7 +103,7 @@
 											</div>
         								</div>
 										<div class="product_meta">
-											<span class="posted_in">Categories: 
+											<span class="posted_in">Danh mục: 
 												<a href="#">Adventure</a>, 
 												<a href="#">Kids' Music</a>
 											</span>
@@ -271,7 +262,7 @@
         				</div>
 						<div class="wn__related__product pt--80 pb--50">
 							<div class="section__title text-center">
-								<h2 class="title__be--2">Related Products</h2>
+								<h2 class="title__be--2">Các sản phẩm liên quan</h2>
 							</div>
 							<div class="row mt--60">
 								<div class="productcategory__slide--2 arrows_style owl-carousel owl-theme">
@@ -297,15 +288,6 @@
 														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
 													</ul>
 												</div>
-											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
 											</div>
 										</div>
 									</div>
@@ -333,15 +315,6 @@
 													</ul>
 												</div>
 											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</div>
 										</div>
 									</div>
 									<!-- Start Single Product -->
@@ -367,15 +340,6 @@
 														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
 													</ul>
 												</div>
-											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
 											</div>
 										</div>
 									</div>
@@ -403,15 +367,6 @@
 													</ul>
 												</div>
 											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</div>
 										</div>
 									</div>
 									<!-- Start Single Product -->
@@ -438,15 +393,6 @@
 													</ul>
 												</div>
 											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</div>
 										</div>
 									</div>
 									<!-- Start Single Product -->
@@ -472,15 +418,6 @@
 														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
 													</ul>
 												</div>
-											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
 											</div>
 										</div>
 									</div>
@@ -490,7 +427,7 @@
 						</div>
 						<div class="wn__related__product">
 							<div class="section__title text-center">
-								<h2 class="title__be--2">upsell products</h2>
+								<h2 class="title__be--2">Sản phẩm bán chạy</h2>
 							</div>
 							<div class="row mt--60">
 								<div class="productcategory__slide--2 arrows_style owl-carousel owl-theme">
@@ -516,15 +453,6 @@
 														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
 													</ul>
 												</div>
-											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
 											</div>
 										</div>
 									</div>
@@ -552,15 +480,6 @@
 													</ul>
 												</div>
 											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</div>
 										</div>
 									</div>
 									<!-- Start Single Product -->
@@ -586,15 +505,6 @@
 														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
 													</ul>
 												</div>
-											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
 											</div>
 										</div>
 									</div>
@@ -622,15 +532,6 @@
 													</ul>
 												</div>
 											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</div>
 										</div>
 									</div>
 									<!-- Start Single Product -->
@@ -657,15 +558,6 @@
 													</ul>
 												</div>
 											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</div>
 										</div>
 									</div>
 									<!-- Start Single Product -->
@@ -691,15 +583,6 @@
 														<li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
 													</ul>
 												</div>
-											</div>
-											<div class="product__hover--content">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
 											</div>
 										</div>
 									</div>
@@ -710,56 +593,16 @@
         			</div>
         			<div class="col-lg-3 col-12 md-mt-40 sm-mt-40">
         				<div class="shop__sidebar">
-        					<aside class="wedget__categories poroduct--cat">
-        						<h3 class="wedget__title">Product Categories</h3>
-        						<ul>
-        							<li><a href="#">Biography <span>(3)</span></a></li>
-        							<li><a href="#">Business <span>(4)</span></a></li>
-        							<li><a href="#">Cookbooks <span>(6)</span></a></li>
-        							<li><a href="#">Health & Fitness <span>(7)</span></a></li>
-        							<li><a href="#">History <span>(8)</span></a></li>
-        							<li><a href="#">Mystery <span>(9)</span></a></li>
-        							<li><a href="#">Inspiration <span>(13)</span></a></li>
-        							<li><a href="#">Romance <span>(20)</span></a></li>
-        							<li><a href="#">Fiction/Fantasy <span>(22)</span></a></li>
-        							<li><a href="#">Self-Improvement <span>(13)</span></a></li>
-        							<li><a href="#">Humor Books <span>(17)</span></a></li>
-        							<li><a href="#">Harry Potter <span>(20)</span></a></li>
-        							<li><a href="#">Land of Stories <span>(34)</span></a></li>
-        							<li><a href="#">Kids' Music <span>(60)</span></a></li>
-        							<li><a href="#">Toys & Games <span>(3)</span></a></li>
-        							<li><a href="#">hoodies <span>(3)</span></a></li>
-        						</ul>
-        					</aside>
-        					<aside class="wedget__categories pro--range">
-        						<h3 class="wedget__title">Filter by price</h3>
-        						<div class="content-shopby">
-        						    <div class="price_filter s-filter clear">
-        						        <form action="#" method="GET">
-        						            <div id="slider-range"></div>
-        						            <div class="slider__range--output">
-        						                <div class="price__output--wrap">
-        						                    <div class="price--output">
-        						                        <span>Price :</span><input type="text" id="amount" readonly="">
-        						                    </div>
-        						                    <div class="price--filter">
-        						                        <a href="#">Filter</a>
-        						                    </div>
-        						                </div>
-        						            </div>
-        						        </form>
-        						    </div>
-        						</div>
-        					</aside>
-							<!-- Product compare aside was here -->
-							<!-- Product tags aside was here -->
-        					<aside class="wedget__categories sidebar--banner">
-								<img src="images/others/banner_left.jpg" alt="banner images">
-								<div class="text">
-									<h2>new products</h2>
-									<h6>save up to <br> <strong>40%</strong>off</h6>
-								</div>
-        					</aside>
+							<!-- Categories -->
+							<?php include('include/widget-category.php'); ?>
+							
+							<!-- Filter by price -->
+							<?php include('include/widget-filter-by-price.php'); ?>
+							
+							<!-- Product tag section was here -->
+							
+							<!-- Sales off -->
+							<?php include('include/widget-sale-off-product.php'); ?>
         				</div>
         			</div>
         		</div>
@@ -783,7 +626,6 @@
 	</div>
 	<!-- //Main wrapper -->
 
-	
 
 	<!-- JS Files -->
 	<script src="js/vendor/jquery-3.2.1.min.js"></script>

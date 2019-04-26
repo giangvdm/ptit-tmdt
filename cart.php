@@ -63,11 +63,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bradcaump__inner text-center">
-                        	<h2 class="bradcaump-title">Shopping Cart</h2>
+                        	<h2 class="bradcaump-title">Giỏ hàng</h2>
                             <nav class="bradcaump-content">
-                              <a class="breadcrumb_item" href="index.html">Home</a>
+                              <a class="breadcrumb_item" href="index.php">Trang chủ</a>
                               <span class="brd-separetor">/</span>
-                              <span class="breadcrumb_item active">Shopping Cart</span>
+                              <span class="breadcrumb_item active">Giỏ hàng</span>
                             </nav>
                         </div>
                     </div>
@@ -86,12 +86,12 @@
                                 <table>
                                     <thead>
                                         <tr class="title-top">
-                                            <th class="product-thumbnail">Image</th>
-                                            <th class="product-name">Product</th>
-                                            <th class="product-price">Price</th>
-                                            <th class="product-quantity">Quantity</th>
-                                            <th class="product-subtotal">Total</th>
-                                            <th class="product-remove">Remove</th>
+                                            <th class="product-thumbnail">Ảnh</th>
+                                            <th class="product-name">Tên sản phẩm</th>
+                                            <th class="product-price">Gía</th>
+                                            <th class="product-quantity">Số lượng</th>
+                                            <th class="product-subtotal">Tạm tính</th>
+                                            <th class="product-remove">Xóa</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -125,8 +125,6 @@
                         </form> 
                         <div class="cartbox__btn">
                             <ul class="cart__btn__list d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">
-                                <li><a href="#">Coupon Code</a></li>
-                                <li><a href="#">Apply Code</a></li>
                                 <li><a href="#">Update Cart</a></li>
                                 <li><a href="#">Check Out</a></li>
                             </ul>
@@ -138,17 +136,17 @@
                         <div class="cartbox__total__area">
                             <div class="cartbox-total d-flex justify-content-between">
                                 <ul class="cart__total__list">
-                                    <li>Cart total</li>
-                                    <li>Sub Total</li>
+                                    <li>Tạm tính (giỏ hàng)</li>
+                                    <li>Phí giao hàng</li>
                                 </ul>
                                 <ul class="cart__total__tk">
                                     <li>$70</li>
-                                    <li>$70</li>
+                                    <li>$0</li>
                                 </ul>
                             </div>
                             <div class="cart__total__amount">
-                                <span>Grand Total</span>
-                                <span>$140</span>
+                                <span>Thành tiền</span>
+                                <span>$70</span>
                             </div>
                         </div>
                     </div>

@@ -51,7 +51,7 @@
                         <div class="block-minicart minicart__active">
                             <div class="minicart-content-wrapper">
                                 <div class="micart__close">
-                                    <span>close</span>
+                                    <span>đóng</span>
                                 </div>
                                 <div class="items-total d-flex justify-content-between">
                                     <span>3 sản phẩm</span>
