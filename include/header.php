@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <header id="wn__header" class="oth-page header__area header__absolute sticky__header">
     <div class="container-fluid">
         <div class="row">
@@ -16,7 +19,7 @@
                             <div class="megamenu mega03">
                                 <ul class="item item03">
                                     <li class="title">Shop Layout</li>
-                                    <li><a href="shop-grid.php">Shop Grid</a></li>
+                                    <li><a href="controller/BookController.php?category=1">Demo</a></li>
                                     <li><a href="single-product.php">Single Product</a></li>
                                 </ul>
                                 <ul class="item item03">
