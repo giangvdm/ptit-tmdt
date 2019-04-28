@@ -150,7 +150,7 @@
                                                 <div class="actions_inner">
                                                     <ul class="add_to_links">
                                                         <li>
-                                                            <a class="cart" href="controller/addCart.php?id=<?php echo $book->getId(); ?>"><i class="bi bi-shopping-cart-full"></i></a>
+                                                            <a class="cart" href="controller/addCart.php?id=<?php echo $book->getId(); ?>&&quantity=1"><i class="bi bi-shopping-cart-full"></i></a>
                                                         </li>
                                                         <li>
                                                             <a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#<?php echo "modal-" . $book->getId(); ?>">
