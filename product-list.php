@@ -1,5 +1,4 @@
 ﻿<?php
-	// session_start();
 	require './model/Book.php';
 	// require 'BookDao.php';
 ?>

@@ -68,7 +68,7 @@
         				<div class="contact-form-wrap">
         					<h2 class="contact__title">Đăng nhập vào tài khoản thành viên</h2>
         					<p>Tiến hành đăng nhập để có trải nghiệm sử dụng dịch vụ tốt hơn. </p>
-                            <form id="contact-form" action="#" method="post">
+                            <form action="controller/loginControl.php" method="post">
                                 <div class="single-contact-form">
                                     <input type="text" name="username" placeholder="Tên tài khoản" required>
                                 </div>

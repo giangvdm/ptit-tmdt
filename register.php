@@ -1,5 +1,12 @@
+<?php
+$con = mysqli_connect("localhost", "root", "", "bookstor");
+mysqli_autocommit($con, True);
+mysqli_set_charset($con, 'utf8');
+
+?>
 <!doctype html>
 <html class="no-js" lang="vi">
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -22,11 +29,12 @@
 	<link rel="stylesheet" href="css/main.css">
 
 	<!-- Cusom css -->
-   <link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/custom.css">
 
 	<!-- Modernizer js -->
 	<script src="js/vendor/modernizr-3.5.0.min.js"></script>
 </head>
+
 <body>
 	<!--[if lte IE 9]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -34,7 +42,7 @@
 
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
-		
+
 		<!-- Header -->
 		<?php include('include/header.php'); ?>
 		<!-- //Header -->
@@ -42,60 +50,89 @@
 		<?php include('include/search.php'); ?>
 		<!-- End Search Popup -->
 
-        <!-- Start Bradcaump area -->
-        <div class="ht__bradcaump__area bg-image--6">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="bradcaump__inner text-center">
-                        	<h2 class="bradcaump-title">Đăng ký</h2>
-                            <nav class="bradcaump-content">
-                              <a class="breadcrumb_item" href="index.html">Trang chủ</a>
-                              <span class="brd-separetor">/</span>
-                              <span class="breadcrumb_item active">Đăng ký</span>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Bradcaump area -->
-        <!-- Start Contact Area -->
-        <section class="wn_contact_area bg--white pt--80 pb--80">
-        	<div class="container">
-        		<div class="row">
-        			<div class="offset-lg-2 col-lg-8 col-md-12">
-        				<div class="contact-form-wrap">
-        					<h2 class="contact__title">Đăng ký tài khoản thành viên</h2>
-        					<p>Đăng ký thành công để có trải nghiệm sử dụng dịch vụ tốt hơn. </p>
-                            <form id="contact-form" action="#" method="post">
-                                <div class="single-contact-form">
-                                    <input type="text" name="username" placeholder="Tên tài khoản*" required>
-                                </div>
-                                <div class="single-contact-form">
-                                    <input type="text" name="password" placeholder="Mật khẩu*" required>
-                                </div>
-                                <div class="single-contact-form space-between">
-                                    <input type="text" name="firstname" placeholder="Tên*" required>
-                                    <input type="text" name="lastname" placeholder="Họ*" required>
-                                </div>
-                                <div class="single-contact-form space-between">
-                                    <input type="email" name="email" placeholder="Email*" required>
-                                    <input type="text" name="address" placeholder="Địa chỉ*" required>
-                                </div>
-                                <div class="contact-btn">
-                                    <button type="submit" name="register">Đăng ký</button>
-                                </div>
-                            </form>
-                        </div> 
-                        <div class="form-output">
-                            <p class="form-messege">
-                        </div>
-        			</div>
-        		</div>
-        	</div>
-        </section>
-        <!-- End Contact Area -->
+		<!-- Start Bradcaump area -->
+		<div class="ht__bradcaump__area bg-image--6">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="bradcaump__inner text-center">
+							<h2 class="bradcaump-title">Đăng ký</h2>
+							<nav class="bradcaump-content">
+								<a class="breadcrumb_item" href="index.html">Trang chủ</a>
+								<span class="brd-separetor">/</span>
+								<span class="breadcrumb_item active">Đăng ký</span>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Bradcaump area -->
+		<!-- Start Contact Area -->
+		<section class="wn_contact_area bg--white pt--80 pb--80">
+			<div class="container">
+				<div class="row">
+					<div class="offset-lg-2 col-lg-8 col-md-12">
+						<div class="contact-form-wrap">
+							<h2 class="contact__title">Đăng ký tài khoản thành viên</h2>
+							<p>Đăng ký thành công để có trải nghiệm sử dụng dịch vụ tốt hơn. </p>
+							<form action="controller/registerControl.php" method="post">
+								<div class="single-contact-form">
+									<input type="text" name="username" placeholder="Tên tài khoản*" required>
+								</div>
+								<div class="single-contact-form">
+									<input type="password" name="password" placeholder="Mật khẩu*" required>
+								</div>
+								<div class="single-contact-form space-between">
+									<input type="text" name="name" placeholder="Tên*" required>
+									<input type="email" name="email" placeholder="Email*" required>
+								</div>
+								<!-- <div class="single-contact-form">
+									<input type="text" name="thành phố" placeholder="Địa chỉ*" required>
+								</div> -->
+								<div class="form-group">
+									<label for="sel1">Tỉnh/Thành phố:</label>
+									<select class="form-control" name="province" id="province-select">
+										<?php
+
+										$sql_address = "SELECT * FROM province order by name;";
+										$query_address = mysqli_query($con, $sql_address);
+										if (mysqli_num_rows($query_address) > 0) {
+											while ($row = mysqli_fetch_assoc($query_address)) {
+												// echo ("<option value=\"" . $row['provinceid'] . "\">" . $row['name'] . "</option>");
+
+												echo ("<option value=\"" . $row['name'] . "\">" . $row['name'] . "</option>");
+											}
+										}
+										?>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="sel1">Quận/Huyện:</label>
+									<select class="form-control" name="district" id="district-select">
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="sel1">Xã/Phường:</label>
+									<select class="form-control" name="ward" id="ward-select">
+									</select>
+								</div>
+								<div class="single-contact-form">
+									<input type="text" name="address" placeholder="Địa chỉ*" required>
+								</div>
+								<div class="contact-btn">
+									<button type="submit" name="register">Đăng ký</button>
+								</div>
+							</form>
+						</div>
+						<div class="form-output">
+							<p class="form-messege">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Contact Area -->
 
 		<!-- Footer Area -->
 		<?php include('include/footer.php'); ?>
@@ -111,6 +148,25 @@
 	<script src="js/plugins.js"></script>
 
 	<script src="js/active.js"></script>
-	
+	<script>
+		$('select').on('change', function() {
+			var keySelect = this.name;
+			$.post("model/addressDao.php", {
+					key: this.name,
+					value: this.value
+				})
+				.done(function(data) {
+					if (keySelect == "province") {
+						$("#district-select").html(data);
+					} else if (keySelect == "district") {
+						$("#ward-select").html(data);
+					}
+				})
+				.fail(function() {
+					alert("Đã có lỗi xảy ra. Vui lòng chọn lại!");
+				});
+		});
+	</script>
 </body>
+
 </html>

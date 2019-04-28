@@ -1,5 +1,6 @@
-<?php
+<?php 
     session_start();
+    require 'model/User.php';
 ?>
 
 <header id="wn__header" class="oth-page header__area header__absolute sticky__header">
@@ -29,7 +30,7 @@
 
                                         foreach ($catList as $category) {
                                     ?>
-                                            <li><a href="controller/BookController.php?category=<?php echo $category->getId(); ?>"><?php echo $category->getName(); ?></a></li>
+                                    <li><a href="controller/BookController.php?category=<?php echo $category->getId(); ?>"><?php echo $category->getName(); ?></a></li>
                                     <?php
                                         }
                                     ?>
@@ -63,7 +64,7 @@
                                     <span>Tạm tính</span>
                                     <?php else : ?>
                                     <span>Chưa có sản phẩm nào <span>
-                                    <?php endif; ?>
+                                            <?php endif; ?>
                                 </div>
                                 <div class="total_amount text-right">
                                     <?php if(!empty($_SESSION['cart'])):?>
@@ -113,9 +114,20 @@
                                     <div class="switcher-options">
                                         <div class="switcher-currency-trigger">
                                             <div class="setting__menu">
+                                                <?php if (!isset($_SESSION['user'])) : ?>
+
+
+                                                <span><a href="login.php" title="Đăng nhập">Đăng nhập</a></span>
+                                                <span><a href="register.php" title="Đăng ký">Đăng ký</a></span>
                                                 <span><a href="#">Theo dõi đơn hàng</a></span>
                                                 <span><a href="#">Thiết lập tài khoản</a></span>
-                                                <span><a href="#">Đăng xuất</a></span>
+                                                <?php else : ?>
+                                                <?php $user = unserialize($_SESSION['user']);?>
+                                                <span class="FontDouble !important;"><a href="#"> Hi <?php echo $user->getAccname()   ?></a></span>
+                                                <span><a href="#">Theo dõi đơn hàng</a></span>
+                                                <span><a href="#">Thiết lập tài khoản</a></span>
+                                                <span><a href="controller/logoutControl.php" title="Đăng xuất">Đăng xuất</a></span>
+                                                <?php endif; ?>
                                             </div>
                                         </div>
                                     </div>
@@ -149,6 +161,6 @@
         <!-- End Mobile Menu -->
         <div class="mobile-menu d-block d-lg-none">
         </div>
-        <!-- Mobile Menu -->	
-    </div>		
+        <!-- Mobile Menu -->
+    </div>
 </header>
