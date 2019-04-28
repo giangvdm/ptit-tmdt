@@ -5,10 +5,12 @@
         private $title;
         private $description;
         private $price;
+        private $oldPrice;
         private $quantity;
         private $author;
         private $publisher;
         private $category;
+        private $isBestSeller;
         private $image;
         
         public function getId()
@@ -31,6 +33,11 @@
             return $this->price;
         }
 
+        public function getOldPrice()
+        {
+            return $this->oldPrice;
+        }
+ 
         public function getQuantity()
         {
             return $this->quantity;
@@ -49,6 +56,11 @@
         public function getCategory()
         {
             return $this->category;
+        }
+
+        public function getIsBestSeller()
+        {
+            return $this->isBestSeller;
         }
 
         public function getImage()
@@ -76,6 +88,11 @@
             $this->price = $price;
         }
 
+        public function setOldPrice($price)
+        {
+            $this->oldPrice = $price;
+        }
+
         public function setQuantity($quantity)
         {
             $this->quantity = $quantity;
@@ -94,6 +111,11 @@
         public function setCategory($category)
         {
             $this->category = $category;
+        }
+
+        public function setIsBestSeller($bool)
+        {
+            $this->isBestSeller = $bool;
         }
 
         public function setImage($img)

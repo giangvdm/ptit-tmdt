@@ -27,17 +27,19 @@
                 $stmt->store_result();
 
                 if ($stmt->num_rows) {
-                    $stmt->bind_result($id, $title, $description, $price, $quantity, $category, $author, $publisher, $image);
+                    $stmt->bind_result($id, $title, $description, $price, $oldPrice, $quantity, $category, $author, $publisher, $isBestSeller, $image);
                     while ($stmt->fetch()) {
                         $book = new Book();
                         $book->setId($id);
                         $book->setTitle($title);
                         $book->setDescription($description);
                         $book->setPrice($price);
+                        $book->setOldPrice($oldPrice);
                         $book->setQuantity($quantity);
                         $book->setCategory($category);
                         $book->setAuthor($author);
                         $book->setPublisher($publisher);
+                        $book->setIsBestSeller($isBestSeller);
                         $book->setImage($image);
                         
                         $bookList[] = $book;
@@ -50,27 +52,78 @@
             return $bookList;
         }
 
+        public function listBestSellerBooks()
+        {
+            $this->conn = $this->connect();
+            
+            $sqlSelectBestSellerBooks = "SELECT * FROM books WHERE is_best_seller = 1";
+
+            $bestSellerBookList = array();
+
+            if ($stmt = $this->conn->prepare($sqlSelectBestSellerBooks)) {
+                $stmt->execute();
+                $stmt->store_result();
+
+                if ($stmt->num_rows) {
+                    $stmt->bind_result($id, $title, $description, $price, $oldPrice, $quantity, $category, $author, $publisher, $isBestSeller, $image);
+                    while ($stmt->fetch()) {
+                        $book = new Book();
+                        $book->setId($id);
+                        $book->setTitle($title);
+                        $book->setDescription($description);
+                        $book->setPrice($price);
+                        $book->setOldPrice($oldPrice);
+                        $book->setQuantity($quantity);
+                        $book->setCategory($category);
+                        $book->setAuthor($author);
+                        $book->setPublisher($publisher);
+                        $book->setIsBestSeller($isBestSeller);
+                        $book->setImage($image);
+                        
+                        $bestSellerBookList[] = $book;
+                    }
+                }
+
+                $this->conn->close();
+            }
+
+            return $bestSellerBookList;
+        }
+
         public function getBookById($id)
         {
             $this->conn = $this->connect();
+
             $sqlSelectBookById = "SELECT * FROM books WHERE id = ?";
+
             $book = new Book();
-            if ($stmt = $mysqli->prepare($query)) {
+
+            if ($stmt = $this->conn->prepare($sqlSelectBookById)) {
                 $stmt->bind_param("i", $id);
                 $stmt->execute();
-                $row = $result->fetch_assoc();
+                $stmt->store_result();
 
-                $book->id = $row['id'];
-                $book->title = $row['title'];
-                $book->description = $row['description'];
-                $book->price = $row['price'];
-                $book->quantity = $row['quantity'];
-                $book->author = $row['author'];
-                $book->publisher = $row['publisher'];
-                $book->image = $row['image'];
+                if ($stmt->num_rows) {
+                    $stmt->bind_result($id, $title, $description, $price, $oldPrice, $quantity, $category, $author, $publisher, $isBestSeller, $image);
+                    $stmt->fetch();
+                    $book = new Book();
+                    $book->setId($id);
+                    $book->setTitle($title);
+                    $book->setDescription($description);
+                    $book->setPrice($price);
+                    $book->setOldPrice($oldPrice);
+                    $book->setQuantity($quantity);
+                    $book->setCategory($category);
+                    $book->setAuthor($author);
+                    $book->setPublisher($publisher);
+                    $book->setIsBestSeller($isBestSeller);
+                    $book->setImage($image);
+                }
 
-                $mysqli->close($stmt);
+                $this->conn->close();
             }
+
+            if (!$book->getId()) return null; // no book with given ID found
 
             return $book;
          }

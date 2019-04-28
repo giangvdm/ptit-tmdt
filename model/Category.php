@@ -19,7 +19,7 @@
             $this->id = $id;
         }
 
-        public function setIName($name)
+        public function setName($name)
         {
             $this->name = $name;
         }

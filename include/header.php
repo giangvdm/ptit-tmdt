@@ -1,6 +1,7 @@
 <?php
     session_start();
 ?>
+
 <header id="wn__header" class="oth-page header__area header__absolute sticky__header">
     <div class="container-fluid">
         <div class="row">
@@ -16,27 +17,22 @@
                     <ul class="meninmenu d-flex justify-content-start">
                         <li class="drop with--one--item"><a href="index.php">Trang chủ</a></li>
                         <li class="drop"><a href="product-list.php">Danh mục</a>
-                            <div class="megamenu mega03">
-                                <ul class="item item03">
-                                    <li class="title">Shop Layout</li>
-                                    <li><a href="controller/BookController.php?category=1">Demo</a></li>
-                                    <li><a href="single-product.php">Single Product</a></li>
-                                </ul>
-                                <ul class="item item03">
-                                    <li class="title">Shop Page</li>
-                                    <li><a href="my-account.php">My Account</a></li>
-                                    <li><a href="cart.php">Cart Page</a></li>
-                                    <li><a href="checkout.php">Checkout Page</a></li>
-                                    <li><a href="error404.php">404 Page</a></li>
-                                    <li><a href="faq.php">Faq Page</a></li>
-                                </ul>
-                                <ul class="item item03">
-                                    <li class="title">Bargain Books</li>
-                                    <li><a href="shop-grid.php">Bargain Bestsellers</a></li>
-                                    <li><a href="shop-grid.php">Activity Kits</a></li>
-                                    <li><a href="shop-grid.php">B&N Classics</a></li>
-                                    <li><a href="shop-grid.php">Books Under $5</a></li>
-                                    <li><a href="shop-grid.php">Bargain Books</a></li>
+                            <div class="megamenu mega02">
+                                <ul class="item">
+                                    <!-- <li class="title">Shop Layout</li> -->
+                                    <?php
+                                        require 'model/CategoryDao.php';
+
+                                        $catDao = new CategoryDao();
+
+                                        $catList = $catDao->getAllCategories();
+
+                                        foreach ($catList as $category) {
+                                    ?>
+                                            <li><a href="controller/BookController.php?category=<?php echo $category->getId(); ?>"><?php echo $category->getName(); ?></a></li>
+                                    <?php
+                                        }
+                                    ?>
                                 </ul>
                             </div>
                         </li>
@@ -49,7 +45,12 @@
                 <ul class="header__sidebar__right d-flex justify-content-end align-items-center">
                     <li class="shop_search"><a class="search__active" href="#"></a></li>
                     <!-- <li class="wishlist"><a href="#"></a></li> -->
-                    <li class="shopcart"><a class="cartbox_active" href="#"><span class="product_qun">3</span></a>
+                    <li class="shopcart"><a class="cartbox_active" href="#"><span class="product_qun">
+                                <?php if(!empty($_SESSION['cart']))
+                                    echo $_SESSION['bookCount'];
+                                    else echo "0";
+                                ?>
+                            </span></a>
                         <!-- Start Shopping Cart -->
                         <div class="block-minicart minicart__active">
                             <div class="minicart-content-wrapper">
@@ -57,64 +58,44 @@
                                     <span>đóng</span>
                                 </div>
                                 <div class="items-total d-flex justify-content-between">
-                                    <span>3 sản phẩm</span>
+                                    <?php if(!empty($_SESSION['cart'])):?>
+                                    <span><?=$_SESSION['bookCount']?> sản phẩm</span>
                                     <span>Tạm tính</span>
+                                    <?php else : ?>
+                                    <span>Chưa có sản phẩm nào <span>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="total_amount text-right">
-                                    <span>$66.00</span>
+                                    <?php if(!empty($_SESSION['cart'])):?>
+                                    <span><?=$_SESSION['totalPrice']?>đ</span>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="mini_action checkout">
-                                    <a class="checkout__btn" href="cart.php">Mua hàng</a>
+                                    <?php if(!empty($_SESSION['cart'])) :?>
+                                    <a class="checkout__btn" href="controller/buyItem.php">Thanh toán</a>
                                 </div>
                                 <div class="single__items">
                                     <div class="miniproduct">
+                                        <?php foreach($_SESSION['cart'] as $key => $val ): ?>
                                         <div class="item01 d-flex">
                                             <div class="thumb">
                                                 <a href="product-details.php"><img src="images/product/sm-img/1.jpg" alt="product images"></a>
                                             </div>
                                             <div class="content">
-                                                <h6><a href="product-details.php">Voyage Yoga Bag</a></h6>
-                                                <span class="prize">$30.00</span>
+                                                <h6><a href="product-details.php"><?=$val['name']?></a></h6>
+                                                <span class="prize"><?=$val['price']?>đ</span>
                                                 <div class="product_prize d-flex justify-content-between">
-                                                    <span class="qun">Qty: 01</span>
+                                                    <span class="qun">Số lượng: <?=$val['qty']?></span>
                                                     <ul class="d-flex justify-content-end">
-                                                        <li><a href="#"><i class="zmdi zmdi-delete"></i></a></li>
+                                                        <li><a href="controller/deleteItem.php?id=<?=$key?>"><i class="zmdi zmdi-delete"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="item01 d-flex mt--20">
-                                            <div class="thumb">
-                                                <a href="product-details.php"><img src="images/product/sm-img/3.jpg" alt="product images"></a>
-                                            </div>
-                                            <div class="content">
-                                                <h6><a href="product-details.php">Impulse Duffle</a></h6>
-                                                <span class="prize">$40.00</span>
-                                                <div class="product_prize d-flex justify-content-between">
-                                                    <span class="qun">Qty: 03</span>
-                                                    <ul class="d-flex justify-content-end">
-                                                        <li><a href="#"><i class="zmdi zmdi-delete"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item01 d-flex mt--20">
-                                            <div class="thumb">
-                                                <a href="product-details.php"><img src="images/product/sm-img/2.jpg" alt="product images"></a>
-                                            </div>
-                                            <div class="content">
-                                                <h6><a href="product-details.php">Compete Track Tote</a></h6>
-                                                <span class="prize">$40.00</span>
-                                                <div class="product_prize d-flex justify-content-between">
-                                                    <span class="qun">Qty: 03</span>
-                                                    <ul class="d-flex justify-content-end">
-                                                        <li><a href="#"><i class="zmdi zmdi-delete"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?php endforeach; ?>
                                     </div>
                                 </div>
+                                <?php endif; ?>
                                 <div class="mini_action cart">
                                     <a class="cart__btn" href="cart.php">Xem chi tiết giỏ hàng</a>
                                 </div>
