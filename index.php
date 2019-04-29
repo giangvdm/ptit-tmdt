@@ -106,50 +106,50 @@
 
                         foreach ($newBookList as $newBook) {
                     ?>
-                        <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
-                            <div class="product__thumb">
-                                <a class="first__img" href="controller/BookController.php?id=<?php echo $newBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
-                                <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $newBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
-                                <?php
+                    <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
+                        <div class="product__thumb">
+                            <a class="first__img" href="controller/BookController.php?id=<?php echo $newBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
+                            <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $newBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
+                            <?php
                                     if ($newBook->getIsBestSeller()):
                                 ?>
-                                    <div class="hot__box">
-                                        <span class="hot-label">BÁN CHẠY</span>
-                                    </div>
-                                <?php
+                            <div class="hot__box">
+                                <span class="hot-label">BÁN CHẠY</span>
+                            </div>
+                            <?php
                                     endif;
                                 ?>
-                            </div>
-                            <div class="product__content content--center">
-                                <h4><a href="product-detail.php"><?php echo $newBook->getTitle(); ?></a></h4>
-                                <ul class="prize d-flex">
-                                    <li><?php echo $newBook->getPrice(); ?></li>
-                                    <?php 
+                        </div>
+                        <div class="product__content content--center">
+                            <h4><a href="product-detail.php"><?php echo $newBook->getTitle(); ?></a></h4>
+                            <ul class="prize d-flex">
+                                <li><?php echo $newBook->getPrice(); ?></li>
+                                <?php 
                                         if ($newBook->getOldPrice()): 
                                     ?>
-                                    <li class="old_prize">
-                                        <?php echo $newBook->getOldPrice(); ?>
-                                    </li>
-                                    <?php
+                                <li class="old_prize">
+                                    <?php echo $newBook->getOldPrice(); ?>
+                                </li>
+                                <?php
                                         endif;
                                     ?>
-                                </ul>
-                                <div class="action">
-                                    <div class="actions_inner">
-                                        <ul class="add_to_links">
-                                            <li>
-                                                <a class="cart" href="controller/addCart.php?id=<?php echo $newBook->getId(); ?>&&quantity=1"><i class="bi bi-shopping-cart-full"></i></a>
-                                            </li>
-                                            <li>
-                                                <a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#<?php echo "modal-" . $newBook->getId(); ?>">
-                                                    <i class="bi bi-search"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                            </ul>
+                            <div class="action">
+                                <div class="actions_inner">
+                                    <ul class="add_to_links">
+                                        <li>
+                                            <a class="cart" href="controller/addCart.php?id=<?php echo $newBook->getId(); ?>&&quantity=1"><i class="bi bi-shopping-cart-full"></i></a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#<?php echo "modal-" . $newBook->getId(); ?>">
+                                                <i class="bi bi-search"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     <?php
                         }
                     ?>
@@ -179,7 +179,7 @@
 
                                 foreach ($someCategories as $cat) {
                             ?>
-                                    <a class="nav-item nav-link js-tab-toggle" data-toggle="tab" href="#nav-<?php echo $cat->getName(); ?>" role="tab"><?php echo $cat->getName(); ?></a>
+                            <a class="nav-item nav-link js-tab-toggle" data-toggle="tab" href="#nav-<?php echo $cat->getName(); ?>" role="tab"><?php echo $cat->getName(); ?></a>
                             <?php
                                 }
                             ?>
@@ -190,66 +190,66 @@
                     <?php
                         for ($i = 0; $i < $numberOfCategoryShown; $i++):
                     ?>
-                        <div class="row single__tab tab-pane fade show" id="nav-<?php echo $someCategories[$i]->getName(); ?>" role="tabpanel">
-						    <div class="product__indicator--4 arrows_style owl-carousel owl-theme">
-                                <?php
+                    <div class="row single__tab tab-pane fade show" id="nav-<?php echo $someCategories[$i]->getName(); ?>" role="tabpanel">
+                        <div class="product__indicator--4 arrows_style owl-carousel owl-theme">
+                            <?php
                                     $someBooks = $bookDao->listBookByFilter($someCategories[$i]->getId(), null, 12);
 
                                     foreach ($someBooks as $book) {
                                 ?>
-                                    <div class="single_product">
-                                        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                            <div class="product product__style--3">
-                                                <div class="product__thumb">
-                                                    <a class="first__img" href="controller/BookController.php?id=<?php echo $book->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
-                                                    <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $book->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
-                                                    <?php
+                            <div class="single_product">
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                    <div class="product product__style--3">
+                                        <div class="product__thumb">
+                                            <a class="first__img" href="controller/BookController.php?id=<?php echo $book->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
+                                            <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $book->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
+                                            <?php
                                                         if ($book->getIsBestSeller()):
                                                     ?>
-                                                        <div class="hot__box">
-                                                            <span class="hot-label">BÁN CHẠY</span>
-                                                        </div>
-                                                    <?php
+                                            <div class="hot__box">
+                                                <span class="hot-label">BÁN CHẠY</span>
+                                            </div>
+                                            <?php
                                                         endif;
                                                     ?>
-                                                </div>
-                                                <div class="product__content content--center">
-                                                    <h4><a href="product-detail.php"><?php echo $book->getTitle(); ?></a></h4>
-                                                    <ul class="prize d-flex">
-                                                        <li><?php echo $book->getPrice(); ?></li>
-                                                        <?php 
+                                        </div>
+                                        <div class="product__content content--center">
+                                            <h4><a href="product-detail.php"><?php echo $book->getTitle(); ?></a></h4>
+                                            <ul class="prize d-flex">
+                                                <li><?php echo $book->getPrice(); ?></li>
+                                                <?php 
                                                             if ($book->getOldPrice()): 
                                                         ?>
-                                                        <li class="old_prize">
-                                                            <?php echo $book->getOldPrice(); ?>
-                                                        </li>
-                                                        <?php
+                                                <li class="old_prize">
+                                                    <?php echo $book->getOldPrice(); ?>
+                                                </li>
+                                                <?php
                                                             endif;
                                                         ?>
+                                            </ul>
+                                            <div class="action">
+                                                <div class="actions_inner">
+                                                    <ul class="add_to_links">
+                                                        <li>
+                                                            <a class="cart" href="controller/addCart.php?id=<?php echo $book->getId(); ?>&&quantity=1"><i class="bi bi-shopping-cart-full"></i></a>
+                                                        </li>
+                                                        <li>
+                                                            <a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#<?php echo "modal-" . $book->getId(); ?>">
+                                                                <i class="bi bi-search"></i>
+                                                            </a>
+                                                        </li>
                                                     </ul>
-                                                    <div class="action">
-                                                        <div class="actions_inner">
-                                                            <ul class="add_to_links">
-                                                                <li>
-                                                                    <a class="cart" href="controller/addCart.php?id=<?php echo $book->getId(); ?>&&quantity=1"><i class="bi bi-shopping-cart-full"></i></a>
-                                                                </li>
-                                                                <li>
-                                                                    <a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#<?php echo "modal-" . $book->getId(); ?>">
-                                                                        <i class="bi bi-search"></i>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                <?php
+                                </div>
+                            </div>
+                            <?php
                                     }
                                 ?>
-                            </div>
                         </div>
+                    </div>
                     <?php
                         endfor;
                     ?>
@@ -277,23 +277,23 @@
 
                     foreach ($bestSellerBookList as $bestSellerBook) {
                 ?>
-                    <div class="product product__style--3">
-                        <div class="product__thumb">
-                            <a class="first__img" href="controller/BookController.php?id=<?php echo $bestSellerBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
-                        </div>
-                        <div class="product__content content--center">
-                            <div class="action">
-                                <div class="actions_inner">
-                                    <ul class="add_to_links">
-                                        <li>
-                                            <a class="cart" href="controller/addCart.php?id=<?php echo $bestSellerBook->getId(); ?>&&quantity=1"><i class="bi bi-shopping-cart-full"></i></a>
-                                        </li>
-                                        <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#<?php echo "modal-" . $bestSellerBook->getId(); ?>"><i class="bi bi-search"></i></a></li>
-                                    </ul>
-                                </div>
+                <div class="product product__style--3">
+                    <div class="product__thumb">
+                        <a class="first__img" href="controller/BookController.php?id=<?php echo $bestSellerBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
+                    </div>
+                    <div class="product__content content--center">
+                        <div class="action">
+                            <div class="actions_inner">
+                                <ul class="add_to_links">
+                                    <li>
+                                        <a class="cart" href="controller/addCart.php?id=<?php echo $bestSellerBook->getId(); ?>&&quantity=1"><i class="bi bi-shopping-cart-full"></i></a>
+                                    </li>
+                                    <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#<?php echo "modal-" . $bestSellerBook->getId(); ?>"><i class="bi bi-search"></i></a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
+                </div>
                 <?php
                     }
                 ?>

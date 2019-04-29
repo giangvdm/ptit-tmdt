@@ -30,7 +30,6 @@ class UserDao extends Database
                 $users->setEmail($row['email']);
                 $users->setAddress($row['address']);
                 return $users;
-                
             }
         }
         
@@ -45,5 +44,28 @@ class UserDao extends Database
         $stmt->close();
         $this->conn->close();
     }
-    
+    public function getAllUser(){
+        $this->conn = $this->connect();
+        $query = "SELECT * FROM users";
+        if($stmt=$this->conn->prepare($query)){
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if($result->num_rows > 0){
+                $allUser = array();
+                while($row = $result->fetch_assoc()){
+                    $users = new User() ;
+                    $users->setId($row['id']);
+                    $users->setAccname($row['accname']);
+                    $users->setName($row['name']);
+                    $users->setPassword($row['password']);
+                    $users->setEmail($row['email']);
+                    $users->setAddress($row['address']);
+                    $allUser[] = $users;
+                }
+            } 
+        }
+        $stmt->close();
+        $this->conn->close();
+        return $allUser;
+    }
 }

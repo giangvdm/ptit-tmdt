@@ -30,7 +30,7 @@
 
                                         foreach ($catList as $category) {
                                     ?>
-                                            <li><a href="controller/BookController.php?category=<?php echo $category->getId(); ?>"><?php echo $category->getName(); ?></a></li>
+                                    <li><a href="controller/BookController.php?category=<?php echo $category->getId(); ?>"><?php echo $category->getName(); ?></a></li>
                                     <?php
                                         }
                                     ?>
@@ -115,14 +115,14 @@
                                         <div class="switcher-currency-trigger">
                                             <div class="setting__menu">
                                                 <?php if (!isset($_SESSION['user'])) : ?>
-                                                    <span><a href="login.php" title="Đăng nhập">Đăng nhập</a></span>
-                                                    <span><a href="register.php" title="Đăng ký">Đăng ký</a></span>
+                                                <span><a href="login.php" title="Đăng nhập">Đăng nhập</a></span>
+                                                <span><a href="register.php" title="Đăng ký">Đăng ký</a></span>
                                                 <?php else : ?>
                                                 <?php $user = unserialize($_SESSION['user']);?>
-                                                    <span class="FontDouble !important;"><a href="#"> Hi <?php echo $user->getAccname()   ?></a></span>
-                                                    <span><a href="#">Theo dõi đơn hàng</a></span>
-                                                    <span><a href="#">Thiết lập tài khoản</a></span>
-                                                    <span><a href="controller/logoutControl.php" title="Đăng xuất">Đăng xuất</a></span>
+                                                <span class="FontDouble !important;"><a href="#"> Hi <?php echo $user->getAccname()   ?></a></span>
+                                                <span><a href="#">Theo dõi đơn hàng</a></span>
+                                                <span><a href="#">Thiết lập tài khoản</a></span>
+                                                <span><a href="controller/logoutControl.php" title="Đăng xuất">Đăng xuất</a></span>
                                                 <?php endif; ?>
                                             </div>
                                         </div>

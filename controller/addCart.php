@@ -14,54 +14,53 @@ function calCart(){
 }
 
 session_start();
-
-if(isset($_GET['id'])&& $_GET['id'] != null){
-    $id = $_GET['id'];
-}else{
-    $id = null;
-}
-if(isset($_GET['quantityUpdate'])){
-    $_SESSION['cart'][$id]['qty'] = $_GET['quantityUpdate'];
-    calCart();
-    header("Location: ../cart.php");
-    exit();
-}else{
-    $book = new Book();
-    $bookDao = new BookDao();
-    $book = $bookDao->getBookById($id);
-    if($book!=null){
-        if(isset($_SESSION['cart'])){
-            if(isset($_SESSION['cart'][$id])){
-                $_SESSION['cart'][$id]['qty'] += $_GET['quantity'];
+    if(isset($_GET['id'])&& $_GET['id'] != null){
+        $id = $_GET['id'];
+    }else{
+        $id = null;
+    }
+    if(isset($_GET['quantityUpdate'])){
+        $_SESSION['cart'][$id]['qty'] = $_GET['quantityUpdate'];
+        calCart();
+        header("Location: ../cart.php");
+        exit();
+    }else{
+        $book = new Book();
+        $bookDao = new BookDao();
+        $book = $bookDao->getBookById($id);
+        if($book!=null){
+            if(isset($_SESSION['cart'])){
+                if(isset($_SESSION['cart'][$id])){
+                    $_SESSION['cart'][$id]['qty'] += $_GET['quantity'];
+                }else{
+                    $_SESSION['cart'][$id]['qty'] = $_GET['quantity'];
+                }
+                $_SESSION['success'] = 'Tồn tại giỏ hàng ! Cập nhật mới thành công';
+                $_SESSION['cart'][$id]['name'] = $book->getTitle();
+                $_SESSION['cart'][$id]['price'] = $book->getPrice();
+                $_SESSION['cart'][$id]['image'] = $book->getImage();
+                $_SESSION['cart'][$id]['quantity'] = $book->getQuantity();
+                if($_SESSION['cart'][$id]['qty'] > $book->getQuantity()){
+                    $_SESSION['cart'][$id]['qty'] = $book->getQuantity();
+                }
+                calCart();
+                header("Location: ../cart.php");
+                exit();
             }else{
                 $_SESSION['cart'][$id]['qty'] = $_GET['quantity'];
+                $_SESSION['success'] = 'Tạo mới giỏ hàng thành công';
+                $_SESSION['cart'][$id]['name'] = $book->getTitle();
+                $_SESSION['cart'][$id]['price'] = $book->getPrice();
+                $_SESSION['cart'][$id]['image'] = $book->getImage();
+                $_SESSION['cart'][$id]['quantity'] = $book->getQuantity();
+                if($_SESSION['cart'][$id]['qty'] > $book->getQuantity()){
+                    $_SESSION['cart'][$id]['qty'] = $book->getQuantity();
+                }
+                calCart();
+                header("Location: ../cart.php");
+                exit();
             }
-            $_SESSION['success'] = 'Tồn tại giỏ hàng ! Cập nhật mới thành công';
-            $_SESSION['cart'][$id]['name'] = $book->getTitle();
-            $_SESSION['cart'][$id]['price'] = $book->getPrice();
-            $_SESSION['cart'][$id]['image'] = $book->getImage();
-            $_SESSION['cart'][$id]['quantity'] = $book->getQuantity();
-            if($_SESSION['cart'][$id]['qty'] > $book->getQuantity()){
-                $_SESSION['cart'][$id]['qty'] = $book->getQuantity();
-            }
-            calCart();
-            header("Location: ../cart.php");
-            exit();
         }else{
-            $_SESSION['cart'][$id]['qty'] = $_GET['quantity'];
-            $_SESSION['success'] = 'Tạo mới giỏ hàng thành công';
-            $_SESSION['cart'][$id]['name'] = $book->getTitle();
-            $_SESSION['cart'][$id]['price'] = $book->getPrice();
-            $_SESSION['cart'][$id]['image'] = $book->getImage();
-            $_SESSION['cart'][$id]['quantity'] = $book->getQuantity();
-            if($_SESSION['cart'][$id]['qty'] > $book->getQuantity()){
-                $_SESSION['cart'][$id]['qty'] = $book->getQuantity();
-            }
-            calCart();
-            header("Location: ../cart.php");
-            exit();
+            header ("Location: ../cart.php");
         }
-    }else{
-        header ("Location: ../cart.php");
     }
-}
