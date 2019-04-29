@@ -15,7 +15,10 @@
             $this->conn = $this->connect();
             
             $sqlSelectBook = "SELECT * FROM books";
-            if (isset($category)) $sqlSelectBook = $sqlSelectBook . " WHERE category_id = $category";
+            $sqlSelectBook = $sqlSelectBook . " INNER JOIN book_category ON books.id = book_category.id_book";
+            if (isset($category)) {
+                $sqlSelectBook = $sqlSelectBook . " WHERE book_category.id_category = $category";
+            }
             // if (isset($minPrice)) $sqlSelectBook . " WHERE price BETWEEN $category";
             // if (isset($maxPrice)) $sqlSelectBook . " WHERE price $category";
 
@@ -27,7 +30,7 @@
                 $stmt->store_result();
 
                 if ($stmt->num_rows) {
-                    $stmt->bind_result($id, $title, $description, $price, $oldPrice, $quantity, $category, $author, $publisher, $isBestSeller, $image);
+                    $stmt->bind_result($id, $title, $description, $price, $oldPrice, $quantity, $author, $publisher, $isBestSeller, $image, $createdAt, $idBookCat, $idBook, $idCategory);
                     while ($stmt->fetch()) {
                         $book = new Book();
                         $book->setId($id);
@@ -36,11 +39,11 @@
                         $book->setPrice($price);
                         $book->setOldPrice($oldPrice);
                         $book->setQuantity($quantity);
-                        $book->setCategory($category);
                         $book->setAuthor($author);
                         $book->setPublisher($publisher);
                         $book->setIsBestSeller($isBestSeller);
                         $book->setImage($image);
+                        $book->setCreatedAt($createdAt);
                         
                         $bookList[] = $book;
                     }
@@ -65,7 +68,7 @@
                 $stmt->store_result();
 
                 if ($stmt->num_rows) {
-                    $stmt->bind_result($id, $title, $description, $price, $oldPrice, $quantity, $category, $author, $publisher, $isBestSeller, $image);
+                    $stmt->bind_result($id, $title, $description, $price, $oldPrice, $quantity, $author, $publisher, $isBestSeller, $image, $createdAt);
                     while ($stmt->fetch()) {
                         $book = new Book();
                         $book->setId($id);
@@ -74,11 +77,11 @@
                         $book->setPrice($price);
                         $book->setOldPrice($oldPrice);
                         $book->setQuantity($quantity);
-                        $book->setCategory($category);
                         $book->setAuthor($author);
                         $book->setPublisher($publisher);
                         $book->setIsBestSeller($isBestSeller);
                         $book->setImage($image);
+                        $book->setCreatedAt($createdAt);
                         
                         $bestSellerBookList[] = $book;
                     }
@@ -104,7 +107,7 @@
                 $stmt->store_result();
 
                 if ($stmt->num_rows) {
-                    $stmt->bind_result($id, $title, $description, $price, $oldPrice, $quantity, $category, $author, $publisher, $isBestSeller, $image);
+                    $stmt->bind_result($id, $title, $description, $price, $oldPrice, $quantity, $author, $publisher, $isBestSeller, $image, $createdAt);
                     $stmt->fetch();
                     $book = new Book();
                     $book->setId($id);
@@ -113,11 +116,11 @@
                     $book->setPrice($price);
                     $book->setOldPrice($oldPrice);
                     $book->setQuantity($quantity);
-                    $book->setCategory($category);
                     $book->setAuthor($author);
                     $book->setPublisher($publisher);
                     $book->setIsBestSeller($isBestSeller);
                     $book->setImage($image);
+                    $book->setCreatedAt($createdAt);
                 }
 
                 $this->conn->close();
@@ -126,5 +129,5 @@
             if (!$book->getId()) return null; // no book with given ID found
 
             return $book;
-         }
+        }
     }

@@ -1,6 +1,7 @@
 ﻿<?php
 	// session_start();
-	require './model/Book.php';
+    require './model/Book.php';
+    // require './model/CategoryDao.php';
 ?>
 
 <!doctype html>
@@ -122,7 +123,7 @@
                                                 <input id="qty" class="input-text qty" name="quantity" min="1" max="<?php echo  $currentBook->getQuantity(); ?>" value="1" title="Số lượng" type="number">
                                                 <input type="hidden" name="id" value="<?php echo $currentBook->getId();?>">
                                                 <div class="addtocart__actions">
-                                                    <button class="tocart" type="submit" title="Add to Cart">Thêm vào giỏ hàng</button>
+                                                    <button class="tocart" type="submit" title="Thêm vào giỏ hàng">Thêm vào giỏ hàng</button>
                                                 </div>
                                                 <div class="product-addto-links clearfix">
                                                     <!-- "Add to Wishlist" and "Compare" were here -->
@@ -131,7 +132,18 @@
                                         </form>
                                         <div class="product_meta">
                                             <span class="posted_in">Danh mục:
-                                                <a href="#">Sửa đi bạn</a>,
+                                                <?php
+                                                    $catDao = new CategoryDao();
+                                                    $catList = $catDao->getCategoriesByBookId($currentBook->getId());
+
+                                                    foreach ($catList as $category) {
+                                                ?>
+                                                        <a href="controller/BookController.php?category=<?php echo $category->getId(); ?>">
+                                                            <?php echo $category->getName(); ?>
+                                                        </a>
+                                                <?php
+                                                    }
+                                                ?>
 
                                             </span>
                                         </div>

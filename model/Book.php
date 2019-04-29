@@ -9,9 +9,10 @@
         private $quantity;
         private $author;
         private $publisher;
-        private $category;
         private $isBestSeller;
         private $image;
+        private $createdAt;
+        private $categories;
         
         public function getId()
         {
@@ -53,11 +54,6 @@
             return $this->publisher;
         }
 
-        public function getCategory()
-        {
-            return $this->category;
-        }
-
         public function getIsBestSeller()
         {
             return $this->isBestSeller;
@@ -66,6 +62,16 @@
         public function getImage()
         {
             return $this->image;
+        }
+
+        public function getCreatedAt()
+        {
+            return $this->createdAt;
+        }
+
+        public function getCategories()
+        {
+            return $this->categories;
         }
 
         public function setId($id)
@@ -108,11 +114,6 @@
             $this->publisher = $publisher;
         }
 
-        public function setCategory($category)
-        {
-            $this->category = $category;
-        }
-
         public function setIsBestSeller($bool)
         {
             $this->isBestSeller = $bool;
@@ -121,5 +122,15 @@
         public function setImage($img)
         {
             $this->image = $img;
+        }
+
+        public function setCreatedAt($time) 
+        {
+            $this->createdAt = $time;
+        }
+
+        public function setCategories($arr) 
+        {
+            $this->categories = $arr;
         }
     }
