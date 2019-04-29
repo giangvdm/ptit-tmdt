@@ -1,6 +1,5 @@
 ﻿<?php
 	require './model/Book.php';
-	// require 'BookDao.php';
 ?>
 
 <!doctype html>
@@ -97,12 +96,15 @@
                                     <p>Tìm thấy <?php echo count($_SESSION['bookList']); ?> kết quả </p>
                                     <div class="orderby__wrapper">
                                         <span>Sắp xếp theo</span>
-                                        <select class="shot__byselect">
-                                            <option>Mặc định</option>
-                                            <option>Bán chạy</option>
-                                            <option>Gía tăng dần</option>
-                                            <option>Gía giảm dần</option>
-                                        </select>
+                                        <form action="controller/BookController.php" method="GET" style="display: inline;">
+                                            <input type="hidden" name="category" value="<?php if (isset($_GET['category'])) echo $_GET['category']; ?>">
+                                            <select class="shot__byselect" name="order-by" onchange="this.form.submit()">
+                                                <option value="none" <?php if (!isset($_GET['order-by'])) echo "selected"; ?>>Mặc định</option>
+                                                <option value="date" <?php if (isset($_GET['order-by']) && $_GET['order-by'] == "date") echo "selected"; ?>>Mới nhất</option>
+                                                <option value="price-low" <?php if (isset($_GET['order-by']) && $_GET['order-by'] == "price-low") echo "selected"; ?>>Gía tăng dần</option>
+                                                <option value="price-high" <?php if (isset($_GET['order-by']) && $_GET['order-by'] == "price-high") echo "selected"; ?>>Gía giảm dần</option>
+                                            </select>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -122,34 +124,34 @@
                                             <a class="first__img" href="controller/BookController.php?id=<?php echo $book->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
                                             <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $book->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
                                             <?php
-														if ($book->getIsBestSeller()):
-													?>
+                                                if ($book->getIsBestSeller()):
+                                            ?>
                                             <div class="hot__box">
                                                 <span class="hot-label">BÁN CHẠY</span>
                                             </div>
                                             <?php
-														endif;
-													?>
+                                                endif;
+                                            ?>
                                         </div>
                                         <div class="product__content content--center">
                                             <h4><a href="product-detail.php"><?php echo $book->getTitle(); ?></a></h4>
                                             <ul class="prize d-flex">
                                                 <li><?php echo $book->getPrice(); ?></li>
                                                 <?php 
-															if ($book->getOldPrice()): 
-														?>
+                                                    if ($book->getOldPrice()): 
+                                                ?>
                                                 <li class="old_prize">
                                                     <?php echo $book->getOldPrice(); ?>
                                                 </li>
                                                 <?php
-															endif;
-														?>
+                                                    endif;
+                                                ?>
                                             </ul>
                                             <div class="action">
                                                 <div class="actions_inner">
                                                     <ul class="add_to_links">
                                                         <li>
-                                                            <a class="cart" href="controller/addCart.php?id=<?php echo $book->getId(); ?>&&quantity=1"><i class="bi bi-shopping-cart-full"></i></a>
+                                                            <a class="cart" href="controller/addCart.php?id=<?php echo $book->getId(); ?>&quantity=1"><i class="bi bi-shopping-cart-full"></i></a>
                                                         </li>
                                                         <li>
                                                             <a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#<?php echo "modal-" . $book->getId(); ?>">
@@ -182,57 +184,10 @@
         <!-- QUICKVIEW PRODUCT -->
         <div id="quickview-wrapper">
             <?php
-					foreach ($_SESSION['bookList'] as $book) {
-				?>
-            <div class="modal fade" id="<?php echo "modal-" . $book->getId(); ?>" tabindex="-1" role="dialog">
-                <div class="modal-dialog modal__container" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header modal__header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="modal-product">
-                                <!-- Start product images -->
-                                <div class="product-images">
-                                    <div class="main-image images">
-                                        <img alt="big images" src="images/product/big-img/1.jpg">
-                                    </div>
-                                </div>
-                                <!-- end product images -->
-                                <div class="product-info">
-                                    <h1><a href="controller/BookController.php?id=<?php echo $book->getId(); ?>"><?php echo $book->getTitle(); ?></a></h1>
-                                    <div class="price-box-3">
-                                        <div class="s-price-box">
-                                            <span class="new-price"><?php echo $book->getPrice(); ?></span>
-                                            <span class="old-price">$45.00</span>
-                                        </div>
-                                    </div>
-                                    <div class="quick-desc">
-                                        <?php echo $book->getDescription(); ?>
-                                    </div>
-                                    <div class="social-sharing">
-                                        <div class="widget widget_socialsharing_widget">
-                                            <h3 class="widget-title-modal">Share this product</h3>
-                                            <ul class="social__net social__net--2 d-flex justify-content-start">
-                                                <li class="facebook"><a href="#" class="rss social-icon"><i class="zmdi zmdi-rss"></i></a></li>
-                                                <li class="linkedin"><a href="#" class="linkedin social-icon"><i class="zmdi zmdi-linkedin"></i></a></li>
-                                                <li class="pinterest"><a href="#" class="pinterest social-icon"><i class="zmdi zmdi-pinterest"></i></a></li>
-                                                <li class="tumblr"><a href="#" class="tumblr social-icon"><i class="zmdi zmdi-tumblr"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="addtocart-btn">
-                                        <a href="#">Add to cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <?php
-					}
-				?>
+                foreach ($_SESSION['bookList'] as $book) {
+                    include('include/quick-view.php');
+                }
+            ?>
         </div>
         <!-- END QUICKVIEW PRODUCT -->
     </div>

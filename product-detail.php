@@ -1,7 +1,5 @@
 ﻿<?php
-	// session_start();
     require './model/Book.php';
-    // require './model/CategoryDao.php';
 ?>
 
 <!doctype html>
@@ -110,12 +108,12 @@
                                     <div class="product__info__main">
                                         <h1><?php echo $currentBook->getTitle(); ?></h1>
                                         <div class="price-box">
-                                            <span><?php echo $currentBook->getPrice(); ?></span>
+                                            <span><?php echo $currentBook->getPrice(); ?> VNĐ</span>
                                         </div>
-                                        <!-- <div class="product__overview">
-													<p>Ideal for cold-weather training or work outdoors, the Chaz Hoodie promises superior warmth with every wear. Thick material blocks out the wind as ribbed cuffs and bottom band seal in body heat.</p>
-													<p>Ideal for cold-weather training or work outdoors, the Chaz Hoodie promises superior warmth with every wear. </p>
-												</div> -->
+                                        <div class="product__overview">
+                                            <p>Tác giả: <?php echo $currentBook->getAuthor(); ?></p>
+                                            <p>Nhà xuất bản: <?php echo $currentBook->getPublisher(); ?></p>
+                                        </div>
                                         <form action="controller/addCart.php" method="get">
                                             <div class="box-tocart d-flex">
                                                 <span>Số lượng</span>
@@ -332,7 +330,7 @@
 
 
         <!-- QUICKVIEW PRODUCT -->
-        <?php include('include/quick-view.php'); ?>
+        <!-- Quick views of related and best seller products are included in respective modules -->
         <!-- END QUICKVIEW PRODUCT -->
 
     </div>

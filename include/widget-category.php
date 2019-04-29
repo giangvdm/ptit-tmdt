@@ -8,7 +8,11 @@
 
             foreach ($catList as $category) {
         ?>
-                <li><a href="controller/BookController.php?category=<?php echo $category->getId(); ?>"><?php echo $category->getName(); ?> <span>(0)</span></a></li>
+                <li>
+                    <a href="controller/BookController.php?category=<?php echo $category->getId(); ?>">
+                        <?php echo $category->getName(); ?> <span>(<?php echo $catDao->countNumberOfBooksByCategory($category->getId()); ?>)</span>
+                    </a>
+                </li>
         <?php
             }
         ?>

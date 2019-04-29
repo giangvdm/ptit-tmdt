@@ -1,14 +1,18 @@
 <?php
-    require 'Database.php';
+    require_once('Database.php');
     require 'Category.php';
 
     class CategoryDao extends Database
     {
-        public function getAllCategories()
+        public function getAllCategories($limit = null)
         {
             $this->conn = $this->connect();
 
             $sqlSelectAllCategories = "SELECT * FROM categories";
+
+            if ($limit != null) {
+                $sqlSelectAllCategories = $sqlSelectAllCategories . " LIMIT $limit";
+            }
 
             if ($stmt = $this->conn->prepare($sqlSelectAllCategories)) {
                 $stmt->execute();
@@ -59,5 +63,28 @@
             }
 
             return $categoryList;
+        }
+
+        public function countNumberOfBooksByCategory($categoryId)
+        {
+            $this->conn = $this->connect();
+
+            $sqlCountBooksByCategory = "SELECT COUNT(*) FROM categories INNER JOIN book_category ON categories.id = book_category.id_category WHERE book_category.id_category = ?";
+
+            $bookCount = 0;
+
+            if ($stmt = $this->conn->prepare($sqlCountBooksByCategory)) {
+                $stmt->bind_param("i", $categoryId);
+                $stmt->execute();
+                $stmt->store_result();
+
+                $stmt->bind_result($count);
+                $stmt->fetch();
+                $bookCount = $count;
+            }
+
+            $this->conn->close();
+
+            return $bookCount;
         }
     }
