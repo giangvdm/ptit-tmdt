@@ -78,7 +78,7 @@
                                         <?php foreach($_SESSION['cart'] as $key => $val ): ?>
                                         <div class="item01 d-flex">
                                             <div class="thumb">
-                                                <a href="product-details.php"><img src="images/product/sm-img/1.jpg" alt="product images"></a>
+                                                <a href="product-details.php"><img style="width:75px;height:94px;" src="<?=$val['image']?>" alt="product images"></a>
                                             </div>
                                             <div class="content">
                                                 <h6><a href="product-details.php"><?=$val['name']?></a></h6>

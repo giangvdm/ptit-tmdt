@@ -82,8 +82,8 @@
                     ?>
                     <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                         <div class="product__thumb">
-                            <a class="first__img" href="controller/BookController.php?id=<?php echo $newBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
-                            <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $newBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
+                            <a class="first__img" href="controller/BookController.php?id=<?php echo $newBook->getId(); ?>"><img style="width:270px;height:340px;" src="<?=$newBook->getImage()?>" alt="product image"></a>
+                            <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $newBook->getId(); ?>"><img style="width:270px;height:340px;"src="<?=$newBook->getImage()?>" alt="product image"></a>
                             <?php
                                     if ($newBook->getIsBestSeller()):
                                 ?>
@@ -175,8 +175,8 @@
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                     <div class="product product__style--3">
                                         <div class="product__thumb">
-                                            <a class="first__img" href="controller/BookController.php?id=<?php echo $book->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
-                                            <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $book->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
+                                            <a class="first__img" href="controller/BookController.php?id=<?php echo $book->getId(); ?>"><img style="width:270px;height:340px;"src="<?=$book->getImage()?>" alt="product image"></a>
+                                            <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $book->getId(); ?>"><img style="width:270px;height:340px;" src="<?=$book->getImage()?>" alt="product image"></a>
                                             <?php
                                                         if ($book->getIsBestSeller()):
                                                     ?>
@@ -252,8 +252,8 @@
                 ?>
                     <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                         <div class="product__thumb">
-                            <a class="first__img" href="controller/BookController.php?id=<?php echo $bestSellerBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
-                            <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $bestSellerBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
+                            <a class="first__img" href="controller/BookController.php?id=<?php echo $bestSellerBook->getId(); ?>"><img style="width:270px;height:340px;" src="<?=$bestSellerBook->getImage()?>" alt="product image"></a>
+                            <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $bestSellerBook->getId(); ?>"><img style="width:270px;height:340px;" src="<?=$bestSellerBook->getImage()?>"  alt="product image"></a>
                             <?php
                             if ($bestSellerBook->getIsBestSeller()):
                         ?>

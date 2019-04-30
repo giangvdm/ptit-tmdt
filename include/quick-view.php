@@ -9,7 +9,7 @@
                     <!-- Start product images -->
                     <div class="product-images">
                         <div class="main-image images">
-                            <img alt="big images" src="images/product/big-img/1.jpg">
+                            <img style="width:420px;height: 614px" alt="big images" src="<?=$book->getImage()?>">
 
                         </div>
                     </div>

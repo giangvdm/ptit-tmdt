@@ -92,7 +92,7 @@
                                     <?php foreach($_SESSION['cart'] as $key => $val ): ?>
                                     <tr>
                                         <form action="controller/addCart.php" method="get">
-                                            <td class="product-thumbnail"><a href="#"><img src="images/product/sm-3/1.jpg" alt="product img"></a></td>
+                                            <td class="product-thumbnail"><a href="#"><img style="width:80px;height:100px;"src="<?=$val['image']?>" alt="product img"></a></td>
                                             <td class="product-name"><a href="#"><?= $val['name']?></a></td>
                                             <td class="product-price"><span class="amount"><?= $val['price'] ?>đ</span></td>
                                             <td class="product-quantity"><input name="quantityUpdate" type="number" min=1 max=<?=$val['quantity']?> value="<?=$val['qty'] ?>"></td>

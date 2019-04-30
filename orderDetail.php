@@ -100,7 +100,7 @@
                                     ?>
                                     <?php foreach($listOrderDetail as $orderDetail): ?>
                                     <tr>
-                                        <td class="product-thumbnail"><a href="#"><img src="images/product/sm-3/1.jpg" alt="product img"></a></td>
+                                        <td class="product-thumbnail"><a href="#"><img style="width:80px;height:100px;" src="<?=$bookDao->getBookById($orderDetail->getBookId())->getImage()?>" alt="product img"></a></td>
                                         <td class="product-name"><a href="#"><?=$bookDao->getBookById($orderDetail->getBookId())->getTitle()?></a></td>
                                         <td class="product-price"><span class="amount"><?=$bookDao->getBookById($orderDetail->getBookId())->getPrice()?>đ</span></td>
                                         <td class="product-price"><span class="amount"><?=$orderDetail->getQuantity()?></span></td>

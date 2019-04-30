@@ -12,8 +12,8 @@
             ?>
                     <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                         <div class="product__thumb">
-                            <a class="first__img" href="controller/BookController.php?id=<?php echo $relatedBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
-                            <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $relatedBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
+                            <a class="first__img" href="controller/BookController.php?id=<?php echo $relatedBook->getId(); ?>"><img style="height: 340px;width: 270px;" src="<?=$relatedBook->getImage()?>" alt="product image"></a>
+                            <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $relatedBook->getId(); ?>"><img style="height: 340px;width: 270px;" src="<?=$relatedBook->getImage()?>" alt="product image"></a>
                             <?php
                                 if ($relatedBook->getIsBestSeller()):
                             ?>
