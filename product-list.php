@@ -108,7 +108,17 @@
                                     <div class="orderby__wrapper">
                                         <span>Sắp xếp theo</span>
                                         <form action="controller/BookController.php" method="GET" style="display: inline;">
-                                            <input type="hidden" name="category" value="<?php if (isset($_GET['category'])) echo $_GET['category']; ?>">
+                                            <?php 
+                                                if (isset($_GET['category'])):
+                                            ?>
+                                            <input type="hidden" name="category" value="<?php echo $_GET['category']; ?>">
+                                            <?php
+                                                elseif (isset($_GET['search-query'])):
+                                            ?>
+                                            <input type="hidden" name="search-query" value="<?php echo $_GET['search-query']; ?>">
+                                            <?php
+                                                endif;
+                                            ?>
                                             <select class="shot__byselect" name="order-by" onchange="this.form.submit()">
                                                 <option value="none" <?php if (!isset($_GET['order-by'])) echo "selected"; ?>>Mặc định</option>
                                                 <option value="date" <?php if (isset($_GET['order-by']) && $_GET['order-by'] == "date") echo "selected"; ?>>Mới nhất</option>

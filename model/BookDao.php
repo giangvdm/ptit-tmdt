@@ -34,11 +34,12 @@
             $this->conn->close();
             return $book;
         }
-        public function listAllBook()
-        {
-            $sqlSelectAllBooks = "SELECT * FROM book";
 
-        }
+        // public function listAllBook()
+        // {
+        //     $sqlSelectAllBooks = "SELECT * FROM book";
+
+        // }
 
         public function listBookByFilter($category = null, $orderBy = null, $limit = null)
         {
@@ -62,8 +63,8 @@
                         break;
                     default:
                         break;
-                    }
                 }
+            }
                 
             if ($limit != null) {
                 $sqlSelectBook = $sqlSelectBook . " LIMIT $limit";
@@ -278,13 +279,30 @@
             return $book;
         }
 
-        public function searchBookByName($title)
+        public function searchBookByName($title, $orderBy = null)
         {
             $this->conn = $this->connect();
 
-            $query = "SELECT * FROM books WHERE title LIKE ?";
+            $sqlSelectBookByTitle = "SELECT * FROM books WHERE title LIKE ?";
+            if (isset($orderBy)) {
+                switch ($orderBy) {
+                    case 'date':
+                        $sqlSelectBookByTitle = $sqlSelectBookByTitle . " ORDER BY created_at DESC";
+                        break;
+                    case 'price-low':
+                        $sqlSelectBookByTitle = $sqlSelectBookByTitle . " ORDER BY price ASC";
+                        break;
+                    case 'price-high':
+                        $sqlSelectBookByTitle = $sqlSelectBookByTitle . " ORDER BY price DESC";
+                        break;
+                    default:
+                        break;
+                }
+            }
+
             $param = "%$title%";
-            if ($stmt=$this->conn->prepare($query)) {
+
+            if ($stmt = $this->conn->prepare($sqlSelectBookByTitle)) {
                 $stmt->bind_param("s",$param);
                 $stmt->execute();
                 $result = $stmt->get_result();

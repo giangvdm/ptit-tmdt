@@ -45,9 +45,18 @@
         $searchQuery = $_GET['search-query'];
         $bookDao = new BookDAO();
 
-        $searchResults = $bookDao->searchBookByName($searchQuery);
+        $searchResults = array();
+        $orderBy = 'none';
+        if (isset($_GET['order-by'])) $orderBy = $_GET['order-by'];
+
+        if ($orderBy != null || $orderBy != 'none') {
+            $searchResults = $bookDao->searchBookByName($searchQuery, $orderBy);
+        }
+        else {
+            $searchResults = $bookDao->searchBookByName($searchQuery);
+        }
 
         $_SESSION['searchResults'] = $searchResults;
 
-        header('location:../product-list.php?search-query=' . $searchQuery);
+        header('location:../product-list.php?search-query=' . $searchQuery . "&order-by=" . $orderBy);
     }
