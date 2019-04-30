@@ -26,7 +26,7 @@ if (isset($_POST['login'])) {
         // echo "<script>alert('Đăng nhập thành công')</script>";
         $_SESSION['user'] = serialize($user);
         
-echo "<script>alert('đăng nhập thành công'); location = '../index.php';</script>";
+        echo "<script>alert('đăng nhập thành công'); location = '../index.php';</script>";
         // echo $user->getAccname();
         // echo $_SESSION['username'];
 

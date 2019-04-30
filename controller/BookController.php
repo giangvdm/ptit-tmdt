@@ -17,11 +17,7 @@
             $bookList = $bookDao->listBookByFilter($category);
         }
 
-        var_dump($orderBy);
-
-        // $_SESSION['bookList'] = null;
         $_SESSION['bookList'] = $bookList;
-        // var_dump($bookList);
         header('location:../product-list.php?category=' . $category . "&order-by=" . $orderBy);
     }
     

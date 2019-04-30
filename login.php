@@ -73,7 +73,7 @@
                                     <input type="text" name="username" placeholder="Tên tài khoản" required>
                                 </div>
                                 <div class="single-contact-form">
-                                    <input type="text" name="password" placeholder="Mật khẩu" required>
+                                    <input type="password" name="password" placeholder="Mật khẩu" required>
                                 </div>
                                 <div class="contact-btn">
                                     <button type="submit" name="login">Đăng nhập</button>

@@ -1,6 +1,6 @@
 <?php 
-    session_start();
     require 'model/User.php';
+    session_start();
 ?>
 
 <header id="wn__header" class="oth-page header__area header__absolute sticky__header">
@@ -17,7 +17,7 @@
                 <nav class="mainmenu__nav">
                     <ul class="meninmenu d-flex justify-content-start">
                         <li class="drop with--one--item"><a href="index.php">Trang chủ</a></li>
-                        <li class="drop"><a href="product-list.php">Danh mục</a>
+                        <li class="drop"><a href="#">Danh mục</a>
                             <div class="megamenu mega02">
                                 <ul class="item">
                                     <!-- <li class="title">Shop Layout</li> -->
@@ -47,8 +47,8 @@
                     <li class="shop_search"><a class="search__active" href="#"></a></li>
                     <!-- <li class="wishlist"><a href="#"></a></li> -->
                     <li class="shopcart"><a class="cartbox_active" href="#"><span class="product_qun">
-                                <?php if(!empty($_SESSION['cart']))
-                                    echo $_SESSION['bookCount'];
+                                <?php
+                                    if(!empty($_SESSION['cart'])) echo $_SESSION['bookCount'];
                                     else echo "0";
                                 ?>
                             </span></a>
@@ -64,7 +64,7 @@
                                     <span>Tạm tính</span>
                                     <?php else : ?>
                                     <span>Chưa có sản phẩm nào <span>
-                                            <?php endif; ?>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="total_amount text-right">
                                     <?php if(!empty($_SESSION['cart'])):?>
@@ -115,13 +115,13 @@
                                         <div class="switcher-currency-trigger">
                                             <div class="setting__menu">
                                                 <?php if (!isset($_SESSION['user'])) : ?>
-                                                <span><a href="login.php" title="Đăng nhập">Đăng nhập</a></span>
-                                                <span><a href="register.php" title="Đăng ký">Đăng ký</a></span>
+                                                    <span><a href="login.php" title="Đăng nhập">Đăng nhập</a></span>
+                                                    <span><a href="register.php" title="Đăng ký">Đăng ký</a></span>
                                                 <?php else : ?>
                                                 <?php $user = unserialize($_SESSION['user']);?>
-                                                <span class="FontDouble !important;"><a href="#"> Hi <?php echo $user->getAccname()   ?></a></span>
-                                                <span><a href="#">Theo dõi đơn hàng</a></span>
-                                                <span><a href="#">Thiết lập tài khoản</a></span>
+                                                <span class="FontDouble !important;"><a href="#"> Chào <?php echo $user->getName(); ?></a></span>
+                                                <span><a href="controller/OrderController.php">Đơn hàng đã đặt</a></span>
+                                                <span><a href="my-account.php">Thiết lập tài khoản</a></span>
                                                 <span><a href="controller/logoutControl.php" title="Đăng xuất">Đăng xuất</a></span>
                                                 <?php endif; ?>
                                             </div>
@@ -140,12 +140,15 @@
                 <nav class="mobilemenu__nav">
                     <ul class="meninmenu">
                         <li><a href="index.php">Trang chủ</a></li>
-                        <li><a href="shop-grid.php">Danh mục sản phẩm</a>
+                        <li><a href="#">Danh mục sản phẩm</a>
                             <ul>
-                                <!-- Render all catagory entries here -->
-                                <li><a href="shop-grid.php">Shop Grid</a></li>
-                                <li><a href="single-product.php">Single Product</a></li>
-                                <!-- -->
+                                <?php
+                                    foreach ($catList as $category) {
+                                ?>
+                                <li><a href="controller/BookController.php?category=<?php echo $category->getId(); ?>"><?php echo $category->getName(); ?></a></li>
+                                <?php
+                                    }
+                                ?>
                             </ul>
                         </li>
                         <li><a href="faq.php">Câu hỏi thường gặp</a></li>

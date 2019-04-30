@@ -1,4 +1,10 @@
-﻿<!doctype html>
+﻿<?php
+	$con = mysqli_connect("localhost", "root", "", "bookstor");
+	mysqli_autocommit($con, True);
+	mysqli_set_charset($con, 'utf8');
+?>
+
+<!doctype html>
 <html class="no-js" lang="vi">
 <head>
 	<meta charset="utf-8">
@@ -48,11 +54,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bradcaump__inner text-center">
-                        	<h2 class="bradcaump-title">My Account</h2>
+                        	<h2 class="bradcaump-title">Thiết lập tài khoản</h2>
                             <nav class="bradcaump-content">
-                              <a class="breadcrumb_item" href="index.html">Home</a>
+                              <a class="breadcrumb_item" href="index.php">Trang chủ</a>
                               <span class="brd-separetor">/</span>
-                              <span class="breadcrumb_item active">My Account</span>
+                              <span class="breadcrumb_item active">Thiết lập tài khoản</span>
                             </nav>
                         </div>
                     </div>
@@ -62,49 +68,90 @@
         <!-- End Bradcaump area -->
 		
 		<!-- Start My Account Area -->
+		<?php
+			if (isset($_SESSION['user'])) {
+				$user = unserialize($_SESSION['user']);
+			}
+			else {
+				$user = null;
+			}
+		?>
+
 		<section class="my_account_area pt--80 pb--55 bg--white">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 col-12">
 						<div class="my__account__wrapper">
-							<h3 class="account__title">Login</h3>
-							<form action="#">
+							<h3 class="account__title">Chỉnh sửa thông tin tài khoản</h3>
+							<form action="controller/UserController.php" method="POST">
+								<input type="hidden" name="customer-id" value="<?php if (isset($user)) echo $user->getId(); ?>">
 								<div class="account__form">
 									<div class="input__box">
-										<label>Username or email address <span>*</span></label>
-										<input type="text">
+										<label for="username">Tên tài khoản <span>*</span></label>
+										<input type="text" name="username" value="<?php if (isset($user)) echo $user->getAccname(); ?>" required>
 									</div>
 									<div class="input__box">
-										<label>Password<span>*</span></label>
-										<input type="text">
+										<label for="name">Họ và tên <span>*</span></label>
+										<input type="text" name="name" value="<?php if (isset($user)) echo $user->getName(); ?>" required>
+									</div>
+									<div class="input__box">
+										<label for="email">Email <span>*</span></label>
+										<input type="text" name="email" value="<?php if (isset($user)) echo $user->getEmail(); ?>" required>
+									</div>
+									<div class="input__box">
+										<label for="province-select">Tỉnh/Thành phố:</label>
+										<select class="form-control js-location-select" name="province" id="province-select">
+											<?php
+												$sql_address = "SELECT * FROM province order by name;";
+												$query_address = mysqli_query($con, $sql_address);
+												if (mysqli_num_rows($query_address) > 0) {
+													while ($row = mysqli_fetch_assoc($query_address)) {
+														echo ("<option value=\"" . $row['name'] . "\">" . $row['name'] . "</option>");
+													}
+												}
+											?>
+										</select>
+									</div>
+									<div class="input__box">
+										<label for="district-select">Quận/Huyện:</label>
+										<select class="form-control js-location-select" name="district" id="district-select"></select>
+									</div>
+									<div class="input__box">
+										<label for="ward-select">Xã/Phường:</label>
+										<select class="form-control js-location-select" name="ward" id="ward-select"></select>
+									</div>
+									<div class="input__box">
+										<label for="address">Địa chỉ <span>*</span></label>
+										<input type="text" name="address" value="<?php if (isset($user)) echo $user->getAddress(); ?>" required>
 									</div>
 									<div class="form__btn">
-										<button>Login</button>
-										<label class="label-for-checkbox">
-											<input id="rememberme" class="input-checkbox" name="rememberme" value="forever" type="checkbox">
-											<span>Remember me</span>
-										</label>
+										<button type="submit" name="account-update">Cập nhật</button>
 									</div>
-									<a class="forget_pass" href="#">Lost your password?</a>
 								</div>
 							</form>
 						</div>
 					</div>
 					<div class="col-lg-6 col-12">
 						<div class="my__account__wrapper">
-							<h3 class="account__title">Register</h3>
-							<form action="#">
+							<h3 class="account__title">Đổi mật khẩu</h3>
+							<form action="controller/UserController.php" method="POST">
+								<input type="hidden" name="customer-id" value="<?php if (isset($user)) echo $user->getId(); ?>">
 								<div class="account__form">
 									<div class="input__box">
-										<label>Email address <span>*</span></label>
-										<input type="email">
+										<label>Mật khẩu cũ <span>*</span></label>
+										<input type="password" name="old-password" required>
 									</div>
 									<div class="input__box">
-										<label>Password<span>*</span></label>
-										<input type="password">
+										<label>Mật khẩu mới <span>*</span></label>
+										<input type="password" name="new-password" id="js-new-password" required>
+									</div>
+									<div class="input__box">
+										<label>Nhập lại mật khẩu <span>*</span></label>
+										<input type="password" name="repeat-password" id="js-repeat-password" aria-describedby="repeatPasswordHelp" required>
+										<small id="repeatPasswordHelp" class="form-text text-muted">Xác nhận mật khẩu phải trùng với mật khẩu mới</small>
 									</div>
 									<div class="form__btn">
-										<button>Register</button>
+										<button type="submit" name="password-change">Cập nhật</button>
 									</div>
 								</div>
 							</form>
@@ -128,6 +175,8 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/plugins.js"></script>
 	<script src="js/active.js"></script>
-	
+	<script src="js/location-select.js"></script>
+	<script src="js/change-password.js"></script>
+
 </body>
 </html>

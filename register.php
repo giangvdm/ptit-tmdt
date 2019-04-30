@@ -1,8 +1,7 @@
 <?php
-$con = mysqli_connect("localhost", "root", "", "bookstor");
-mysqli_autocommit($con, True);
-mysqli_set_charset($con, 'utf8');
-
+	$con = mysqli_connect("localhost", "root", "", "bookstor");
+	mysqli_autocommit($con, True);
+	mysqli_set_charset($con, 'utf8');
 ?>
 <!doctype html>
 <html class="no-js" lang="vi">
@@ -91,8 +90,8 @@ mysqli_set_charset($con, 'utf8');
 									<input type="text" name="thành phố" placeholder="Địa chỉ*" required>
 								</div> -->
 								<div class="form-group">
-									<label for="sel1">Tỉnh/Thành phố:</label>
-									<select class="form-control" name="province" id="province-select">
+									<label for="province-select">Tỉnh/Thành phố:</label>
+									<select class="form-control js-location-select" name="province" id="province-select">
 										<?php
 
 										$sql_address = "SELECT * FROM province order by name;";
@@ -108,14 +107,12 @@ mysqli_set_charset($con, 'utf8');
 									</select>
 								</div>
 								<div class="form-group">
-									<label for="sel1">Quận/Huyện:</label>
-									<select class="form-control" name="district" id="district-select">
-									</select>
+									<label for="district-select">Quận/Huyện:</label>
+									<select class="form-control js-location-select" name="district" id="district-select"></select>
 								</div>
 								<div class="form-group">
-									<label for="sel1">Xã/Phường:</label>
-									<select class="form-control" name="ward" id="ward-select">
-									</select>
+									<label for="ward-select">Xã/Phường:</label>
+									<select class="form-control js-location-select" name="ward" id="ward-select"></select>
 								</div>
 								<div class="single-contact-form">
 									<input type="text" name="address" placeholder="Địa chỉ*" required>
@@ -148,25 +145,7 @@ mysqli_set_charset($con, 'utf8');
 	<script src="js/plugins.js"></script>
 
 	<script src="js/active.js"></script>
-	<script>
-		$('select').on('change', function() {
-			var keySelect = this.name;
-			$.post("model/addressDao.php", {
-					key: this.name,
-					value: this.value
-				})
-				.done(function(data) {
-					if (keySelect == "province") {
-						$("#district-select").html(data);
-					} else if (keySelect == "district") {
-						$("#ward-select").html(data);
-					}
-				})
-				.fail(function() {
-					alert("Đã có lỗi xảy ra. Vui lòng chọn lại!");
-				});
-		});
-	</script>
+	<script src="js/location-select.js"></script>
 </body>
 
 </html>

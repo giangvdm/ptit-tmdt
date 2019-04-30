@@ -34,6 +34,7 @@
     CheckOut Page
     Price Slider Active
     Dropdown
+    Form Custom Validity
 
 
 =================================================================================
@@ -543,7 +544,23 @@
 		  }
 		}
 	  ]
-	});
+  });
+  
+  /*====== Custom Validity ======*/
+  document.addEventListener("DOMContentLoaded", function() {
+    var inputFields = document.getElementsByTagName("input");
+    for (var i = 0; i < inputFields.length; i++) {
+      inputFields[i].oninvalid = function(e) {
+        e.target.setCustomValidity("");
+        if (!e.target.validity.valid) {
+            e.target.setCustomValidity("Thông tin nhập vào không đúng hoặc thiếu. Vui lòng thử lại!");
+        }
+        inputFields[i].oninput = function(e) {
+          e.target.setCustomValidity("");
+        };
+      }
+    }
+  });
 
 
 })(jQuery);

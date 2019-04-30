@@ -44,6 +44,7 @@ class UserDao extends Database
         $stmt->close();
         $this->conn->close();
     }
+
     public function getAllUser(){
         $this->conn = $this->connect();
         $query = "SELECT * FROM users";
@@ -67,5 +68,80 @@ class UserDao extends Database
         $stmt->close();
         $this->conn->close();
         return $allUser;
+    }
+
+    public function changePassword($oldPass, $newPass, $id)
+    {
+        $this->conn = $this->connect();
+
+        $sqlGetCustomerPasswordById = "SELECT password FROM users WHERE id = ?";
+
+        $currentPassword = null;
+
+        if ($stmt = $this->conn->prepare($sqlGetCustomerPasswordById)) {
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $stmt->store_result();
+
+            if ($stmt->num_rows) {
+                $stmt->bind_result($password);
+                $stmt->fetch();
+
+                $currentPassword = $password;
+                if ($currentPassword != $oldPass) {
+                    $this->conn->close();
+                    return false;
+                }
+            }
+        }
+
+        $stmt->free_result();
+
+        $sqlUpdatePassword = "UPDATE users SET password = ? WHERE id = ?";
+
+        if ($stmt = $this->conn->prepare($sqlUpdatePassword)) {
+            $stmt->bind_param("si", $newPass, $id);
+            if ($stmt->execute()) {
+                $this->conn->close();
+                return true;
+            }
+            else {
+                $this->conn->close();
+                return false;
+            }
+        }
+    }
+
+    public function updateCustomerInfo($id, $arr)
+    {
+        $this->conn = $this->connect();
+
+        $sqlUpdateCustomerInfo = "UPDATE users SET accname = ?, name = ?, email = ?, address = ? WHERE id = ?";
+
+        $newAddress = $arr['address'];
+
+        if (isset($arr['province'])) {
+            $newAddress = $newAddress . "-" . $arr['province'];
+        }
+        if (isset($arr['district'])) {
+            $newAddress = $newAddress . "-" . $arr['district'];
+        }
+        if (isset($arr['ward'])) {
+            $newAddress = $newAddress . "-" . $arr['ward'];
+        }
+
+        if ($stmt = $this->conn->prepare($sqlUpdateCustomerInfo)) {
+            $stmt->bind_param("ssssi", $arr['username'], $arr['name'], $arr['email'], $newAddress, $id);
+
+            if ($stmt->execute()) {
+                $this->conn->close();
+                return true;
+            }
+            else {
+                $this->conn->close();
+                return false;
+            }
+        }
+
     }
 }
