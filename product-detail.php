@@ -145,7 +145,7 @@
 
                                             </span>
                                         </div>
-                                        <div class="product-share">
+                                        <!-- <div class="product-share">
                                             <ul>
                                                 <li class="categories-title">Chia sẻ :</li>
                                                 <li>
@@ -169,7 +169,7 @@
                                                     </a>
                                                 </li>
                                             </ul>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -311,7 +311,6 @@
                             <!-- Product tag section was here -->
 
                             <!-- Sales off -->
-                            <?php include('include/widget-sale-off-product.php'); ?>
                         </div>
                     </div>
                 </div>

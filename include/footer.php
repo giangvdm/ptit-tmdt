@@ -8,7 +8,7 @@
                             <a href="index.html">
                                 <img src="images/logo/3.png" alt="logo">
                             </a>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages</p>
+                            <p>Shop book uy tín nhất tại Việt Nam <br>Hãy tìm và mua những cuốn sách hay nhất tại đây nhé các bạn <br>shopbook@gmail.com<br>0966488888</p>
                         </div>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="copyright">
                         <div class="copy__right__inner text-left">
-                            <p>Bản quyền <i class="fa fa-copyright"></i> <a href="https://freethemescloud.com/">Free themes Cloud.</a> Bảo lưu mọi quyền</p>
+                            <p>Bản quyền <i class="fa fa-copyright"></i> <a href="#">D15.PTIT.edu@gmail.com</a> Bảo lưu mọi quyền</p>
                         </div>
                     </div>
                 </div>

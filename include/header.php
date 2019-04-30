@@ -37,8 +37,6 @@
                                 </ul>
                             </div>
                         </li>
-                        <li><a href="faq.php">Câu hỏi thường gặp</a></li>
-                        <li><a href="contact.php">Liên hệ</a></li>
                     </ul>
                 </nav>
             </div>

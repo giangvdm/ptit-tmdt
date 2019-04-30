@@ -51,38 +51,12 @@
         <div class="slider-area brown__nav slider--15 slide__activation slide__arrow01 owl-carousel owl-theme">
             <!-- Start Single Slide -->
             <div class="slide animation__style10 bg-image--1 fullscreen align__center--left">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="slider__content">
-                                <div class="contentbox">
-                                    <h2>Buy <span>your </span></h2>
-                                    <h2>favourite <span>Book </span></h2>
-                                    <h2>from <span>Here </span></h2>
-                                    <a class="shopbtn" href="#">shop now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <!-- End Single Slide -->
             <!-- Start Single Slide -->
             <div class="slide animation__style10 bg-image--7 fullscreen align__center--left">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="slider__content">
-                                <div class="contentbox">
-                                    <h2>Buy <span>your </span></h2>
-                                    <h2>favourite <span>Book </span></h2>
-                                    <h2>from <span>Here </span></h2>
-                                    <a class="shopbtn" href="#">shop now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <!-- End Single Slide -->
         </div>
@@ -95,7 +69,7 @@
                     <div class="col-lg-12">
                         <div class="section__title text-center">
                             <h2 class="title__be--2">Sản phẩm <span class="color--theme">Mới</span></h2>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered lebmid alteration in some ledmid form</p>
+                            <p></p>
                         </div>
                     </div>
                 </div>
@@ -123,12 +97,12 @@
                         <div class="product__content content--center">
                             <h4><a href="product-detail.php"><?php echo $newBook->getTitle(); ?></a></h4>
                             <ul class="prize d-flex">
-                                <li><?php echo $newBook->getPrice(); ?></li>
+                                <li><?php echo $newBook->getPrice(); ?>đ</li>
                                 <?php 
                                         if ($newBook->getOldPrice()): 
                                     ?>
                                 <li class="old_prize">
-                                    <?php echo $newBook->getOldPrice(); ?>
+                                    <?php echo $newBook->getOldPrice(); ?>đ
                                 </li>
                                 <?php
                                         endif;
@@ -166,7 +140,7 @@
                     <div class="col-lg-12">
                         <div class="section__title text-center">
                             <h2 class="title__be--2"><span class="color--theme">Tất cả </span> sản phẩm</h2>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered lebmid alteration in some ledmid form</p>
+                            <p></p>
                         </div>
                     </div>
                 </div>
@@ -216,12 +190,12 @@
                                         <div class="product__content content--center">
                                             <h4><a href="product-detail.php"><?php echo $book->getTitle(); ?></a></h4>
                                             <ul class="prize d-flex">
-                                                <li><?php echo $book->getPrice(); ?></li>
+                                                <li><?php echo $book->getPrice(); ?>đ</li>
                                                 <?php 
                                                             if ($book->getOldPrice()): 
                                                         ?>
                                                 <li class="old_prize">
-                                                    <?php echo $book->getOldPrice(); ?>
+                                                    <?php echo $book->getOldPrice(); ?>đ
                                                 </li>
                                                 <?php
                                                             endif;
@@ -266,64 +240,64 @@
                     <div class="col-lg-12">
                         <div class="section__title text-center">
                             <h2 class="title__be--2">Sản phẩm <span class="color--theme">Bán chạy </span></h2>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered lebmid alteration in some ledmid form</p>
+                            <p></p>
                         </div>
                     </div>
                 </div>
                 <div class="furniture--4 border--round arrows_style owl-carousel owl-theme row mt--50">
-                <?php
+                    <?php
                     $bestSellerBookList = $bookDao->listBestSellerBooks(15);
 
                     foreach ($bestSellerBookList as $bestSellerBook) {
                 ?>
-                <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
-                    <div class="product__thumb">
-                        <a class="first__img" href="controller/BookController.php?id=<?php echo $bestSellerBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
-                        <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $bestSellerBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
-                        <?php
+                    <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
+                        <div class="product__thumb">
+                            <a class="first__img" href="controller/BookController.php?id=<?php echo $bestSellerBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
+                            <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $bestSellerBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
+                            <?php
                             if ($bestSellerBook->getIsBestSeller()):
                         ?>
-                                <div class="hot__box">
-                                    <span class="hot-label">BÁN CHẠY</span>
-                                </div>
-                        <?php
+                            <div class="hot__box">
+                                <span class="hot-label">BÁN CHẠY</span>
+                            </div>
+                            <?php
                             endif;
                         ?>
-                    </div>
-                    <div class="product__content content--center">
-                        <h4><a href="product-detail.php"><?php echo $bestSellerBook->getTitle(); ?></a></h4>
-                        <ul class="prize d-flex">
-                            <li><?php echo $bestSellerBook->getPrice(); ?> VNĐ</li>
-                            <?php 
+                        </div>
+                        <div class="product__content content--center">
+                            <h4><a href="product-detail.php"><?php echo $bestSellerBook->getTitle(); ?></a></h4>
+                            <ul class="prize d-flex">
+                                <li><?php echo $bestSellerBook->getPrice(); ?>đ</li>
+                                <?php 
                                 if ($bestSellerBook->getOldPrice()): 
                             ?>
-                                    <li class="old_prize">
-                                        <?php echo $bestSellerBook->getOldPrice(); ?> VNĐ
-                                    </li>
-                            <?php
+                                <li class="old_prize">
+                                    <?php echo $bestSellerBook->getOldPrice(); ?>đ
+                                </li>
+                                <?php
                                 endif;
                             ?>
-                        </ul>
-                        <div class="action">
-                            <div class="actions_inner">
-                                <ul class="add_to_links">
-                                    <li>
-                                        <a class="cart" href="cart.php"><i class="bi bi-shopping-cart-full"></i></a>
-                                    </li>
-                                    <li>
-                                        <a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#<?php echo "modal-" . $bestSellerBook->getId(); ?>">
-                                            <i class="bi bi-search"></i>
-                                        </a>
-                                    </li>
-                                </ul>
+                            </ul>
+                            <div class="action">
+                                <div class="actions_inner">
+                                    <ul class="add_to_links">
+                                        <li>
+                                            <a class="cart" href="cart.php"><i class="bi bi-shopping-cart-full"></i></a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#<?php echo "modal-" . $bestSellerBook->getId(); ?>">
+                                                <i class="bi bi-search"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <?php
+                    <?php
                     }
                 ?>
-            </div>
+                </div>
         </section>
         <!-- Best Sale Area Area -->
 

@@ -80,7 +80,6 @@
                             <!-- Product tag section was here -->
 
                             <!-- Sales off -->
-                            <?php include('include/widget-sale-off-product.php'); ?>
                         </div>
                     </div>
                     <div class="col-lg-9 col-12 order-1 order-lg-2">
@@ -93,7 +92,7 @@
 			                            <a class="nav-item nav-link" data-toggle="tab" href="#nav-list" role="tab"><i class="fa fa-list"></i></a> -->
                                     </div>
                                     <p>
-                                        Tìm thấy 
+                                        Tìm thấy
                                         <?php 
                                             if (isset($_GET['category'])) {
                                                 echo count($_SESSION['bookList']);
@@ -113,8 +112,8 @@
                                             <select class="shot__byselect" name="order-by" onchange="this.form.submit()">
                                                 <option value="none" <?php if (!isset($_GET['order-by'])) echo "selected"; ?>>Mặc định</option>
                                                 <option value="date" <?php if (isset($_GET['order-by']) && $_GET['order-by'] == "date") echo "selected"; ?>>Mới nhất</option>
-                                                <option value="price-low" <?php if (isset($_GET['order-by']) && $_GET['order-by'] == "price-low") echo "selected"; ?>>Gía tăng dần</option>
-                                                <option value="price-high" <?php if (isset($_GET['order-by']) && $_GET['order-by'] == "price-high") echo "selected"; ?>>Gía giảm dần</option>
+                                                <option value="price-low" <?php if (isset($_GET['order-by']) && $_GET['order-by'] == "price-low") echo "selected"; ?>>Giá tăng dần</option>
+                                                <option value="price-high" <?php if (isset($_GET['order-by']) && $_GET['order-by'] == "price-high") echo "selected"; ?>>Giá giảm dần</option>
                                             </select>
                                         </form>
                                     </div>
@@ -150,12 +149,12 @@
                                         <div class="product__content content--center">
                                             <h4><a href="product-detail.php"><?php echo $book->getTitle(); ?></a></h4>
                                             <ul class="prize d-flex">
-                                                <li><?php echo $book->getPrice(); ?></li>
+                                                <li><?php echo $book->getPrice(); ?>đ</li>
                                                 <?php 
                                                     if ($book->getOldPrice()): 
                                                 ?>
                                                 <li class="old_prize">
-                                                    <?php echo $book->getOldPrice(); ?>
+                                                    <?php echo $book->getOldPrice(); ?>đ
                                                 </li>
                                                 <?php
                                                     endif;
@@ -201,12 +200,12 @@
                                         <div class="product__content content--center">
                                             <h4><a href="product-detail.php"><?php echo $searchedBook->getTitle(); ?></a></h4>
                                             <ul class="prize d-flex">
-                                                <li><?php echo $searchedBook->getPrice(); ?></li>
+                                                <li><?php echo $searchedBook->getPrice(); ?>đ</li>
                                                 <?php 
                                                     if ($searchedBook->getOldPrice()): 
                                                 ?>
                                                 <li class="old_prize">
-                                                    <?php echo $searchedBook->getOldPrice(); ?>
+                                                    <?php echo $searchedBook->getOldPrice(); ?>đ
                                                 </li>
                                                 <?php
                                                     endif;
