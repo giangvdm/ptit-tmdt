@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require '../model/OrderDao.php';
-    require '../model/User.php';
+    require_once '../model/OrdersDao.php';
+    require_once '../model/User.php';
     $user = new User();
     $ordersDao = new OrdersDao();
     $orderDetailDao = new OrdersDetailDao();

@@ -45,9 +45,14 @@
         <!-- Start Search Popup -->
         <?php include('include/search.php'); ?>
         <?php 
-            require_once 'model/OrdersDao.php';
-            $orderDao = new OrdersDao();
-            $listOrder = $orderDao->getOrderByCusId($user->getId());
+            require_once 'model/OrdersdetailDao.php';
+            require_once 'model/BookDao.php';
+            if(isset($_GET['id'])){
+                $id = $_GET['id'];
+                $bookDao = new BookDao();
+                $ordersDetailDao = new OrdersdetailDao();
+                $listOrderDetail = $ordersDetailDao->getOrderDetail($id);
+            }
         ?>
         <!-- End Search Popup -->
 
@@ -81,37 +86,53 @@
                             <table>
                                 <thead>
                                     <tr class="title-top">
-                                        <th>Mã hơn hàng</th>
-                                        <th>Tổng số lượng</th>
-                                        <th>Ngày đặt</th>
-                                        <th>Tổng tiền</th>
-                                        <th>Trạng thái</th>
-                                        <th>Hành động</th>
+                                        <th class="product-thumbnail">Ảnh</th>
+                                        <th class="product-name">Tên sản phẩm</th>
+                                        <th class="product-price">Đơn giá</th>
+                                        <th class="product-quantity">Số lượng</th>
+                                        <th class="product-subtotal">Tạm tính</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($listOrder as $order): ?>
+                                    <?php 
+                                        $totalPrice  = 0;
+                                    ?>
+                                    <?php foreach($listOrderDetail as $orderDetail): ?>
                                     <tr>
-                                        <td><?=$order->getId()?></td>
-                                        <td><?=$order->getTotalAmount()?></td>
-                                        <td><?=$order->getCreatedAt()?></td>
-                                        <td><?=$order->getTotalPrice()?></td>
-                                        <td>
-                                            <?php
-                                            if($order->getStatus()==1){
-                                                echo "Đang giao hàng";
-                                            }else if($order->getStatus()==0){
-                                                echo "Chờ lấy hàng";
-                                            }else{
-                                                echo "Đã thanh toán";
-                                            }
+                                        <td class="product-thumbnail"><a href="#"><img src="images/product/sm-3/1.jpg" alt="product img"></a></td>
+                                        <td class="product-name"><a href="#"><?=$bookDao->getBookById($orderDetail->getBookId())->getTitle()?></a></td>
+                                        <td class="product-price"><span class="amount"><?=$bookDao->getBookById($orderDetail->getBookId())->getPrice()?>đ</span></td>
+                                        <td class="product-price"><span class="amount"><?=$orderDetail->getQuantity()?></span></td>
+                                        <td class="product-subtotal"><?=$bookDao->getBookById($orderDetail->getBookId())->getPrice()*$orderDetail->getQuantity()?>đ</td>
+                                        <?php 
+                                            $totalPrice += $bookDao->getBookById($orderDetail->getBookId())->getPrice()*$orderDetail->getQuantity();
                                         ?>
-                                        </td>
-                                        <td><a href="orderDetail.php?id=<?=$order->getId()?>">Chi tiết</a></td>
                                     </tr>
-                                    <?php endforeach;?>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-6">
+                        <div class="cartbox__total__area">
+                            <div class="cartbox-total d-flex justify-content-between">
+                                <ul class="cart__total__list">
+                                    <li>Tạm tính (giỏ hàng)</li>
+                                    <li>Phí giao hàng</li>
+                                </ul>
+                                <ul class="cart__total__tk">
+                                    <?php if(isset($listOrderDetail)):?>
+                                    <li><?=$totalPrice?>đ</li>
+                                    <li>0đ</li>
+                                    <?php endif;?>
+                                </ul>
+                            </div>
+                            <div class="cart__total__amount">
+                                <span>Thành tiền</span>
+                                <span><?=$totalPrice?>đ</span>
+                            </div>
                         </div>
                     </div>
                 </div>

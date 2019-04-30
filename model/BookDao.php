@@ -4,6 +4,36 @@
     
     class BookDAO extends Database
     {
+        public function getBookById2($id){
+            $this->conn = $this->connect();
+            $query = "SELECT * FROM books WHERE id = ?";
+            $param = $id;
+            $book = null;
+            if($stmt=$this->conn->prepare($query)){
+                $stmt->bind_param("i",$param);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                if($result->num_rows > 0){
+                    while($row = $result->fetch_assoc()){
+                        $book = new Book() ;
+                        $book->setId($row['id']);
+                        $book->setTitle($row['title']);
+                        $book->setDescription($row['description']);
+                        $book->setPrice($row['price']);
+                        $book->setOldPrice($row['old_price']);
+                        $book->setQuantity($row['quantity']);
+                        $book->setAuthor($row['author']);
+                        $book->setPublisher($row['publisher']);
+                        $book->setIsBestSeller($row['is_best_seller']);
+                        $book->setImage($row['image']);
+                    }
+                } 
+                $stmt->close();
+            }
+           
+            $this->conn->close();
+            return $book;
+        }
         public function listAllBook()
         {
             $sqlSelectAllBooks = "SELECT * FROM book";

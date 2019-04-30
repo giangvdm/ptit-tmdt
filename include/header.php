@@ -64,7 +64,7 @@
                                     <span>Tạm tính</span>
                                     <?php else : ?>
                                     <span>Chưa có sản phẩm nào <span>
-                                    <?php endif; ?>
+                                            <?php endif; ?>
                                 </div>
                                 <div class="total_amount text-right">
                                     <?php if(!empty($_SESSION['cart'])):?>
@@ -115,12 +115,12 @@
                                         <div class="switcher-currency-trigger">
                                             <div class="setting__menu">
                                                 <?php if (!isset($_SESSION['user'])) : ?>
-                                                    <span><a href="login.php" title="Đăng nhập">Đăng nhập</a></span>
-                                                    <span><a href="register.php" title="Đăng ký">Đăng ký</a></span>
+                                                <span><a href="login.php" title="Đăng nhập">Đăng nhập</a></span>
+                                                <span><a href="register.php" title="Đăng ký">Đăng ký</a></span>
                                                 <?php else : ?>
                                                 <?php $user = unserialize($_SESSION['user']);?>
                                                 <span class="FontDouble !important;"><a href="#"> Chào <?php echo $user->getName(); ?></a></span>
-                                                <span><a href="controller/OrderController.php">Đơn hàng đã đặt</a></span>
+                                                <span><a href="order-history.php">Đơn hàng đã đặt</a></span>
                                                 <span><a href="my-account.php">Thiết lập tài khoản</a></span>
                                                 <span><a href="controller/logoutControl.php" title="Đăng xuất">Đăng xuất</a></span>
                                                 <?php endif; ?>
