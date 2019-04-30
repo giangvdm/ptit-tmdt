@@ -95,6 +95,7 @@
                                 </thead>
                                 <tbody>
                                     <?php 
+                                        if(isset($listOrderDetail)):
                                         $totalPrice  = 0;
                                     ?>
                                     <?php foreach($listOrderDetail as $orderDetail): ?>
@@ -109,6 +110,7 @@
                                         ?>
                                     </tr>
                                     <?php endforeach; ?>
+                                    <?php endif;?>
                                 </tbody>
                             </table>
                         </div>
