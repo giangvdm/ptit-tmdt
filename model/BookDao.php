@@ -134,23 +134,23 @@
                         $bestSellerBookList[] = $book;
                     }
                 }
-
-                $this->conn->close();
             }
+
+            $this->conn->close();
 
             return $bestSellerBookList;
         }
 
-        public function listRelatedBooks($category, $limit)
+        public function listRelatedBooks($category, $currentBookId, $limit)
         {
             $this->conn = $this->connect();
             
-            $sqlSelectRelatedBooks = "SELECT * FROM books INNER JOIN book_category ON books.id = book_category.id_book WHERE book_category.id_category = $category LIMIT $limit";
+            $sqlSelectRelatedBooks = "SELECT * FROM books INNER JOIN book_category ON books.id = book_category.id_book WHERE book_category.id_category = ? AND NOT book_category.id_book = ? LIMIT ?";
 
             $relatedBookList = array();
 
-            if ($stmt = $this->conn->prepare($sqlSelectBestSellerBooks)) {
-                $stmt->bind_param("ii", $category, $limit);
+            if ($stmt = $this->conn->prepare($sqlSelectRelatedBooks)) {
+                $stmt->bind_param("iii", $category, $currentBookId, $limit);
                 $stmt->execute();
                 $stmt->store_result();
 
@@ -170,12 +170,12 @@
                         $book->setImage($image);
                         $book->setCreatedAt($createdAt);
                         
-                        $bookList[] = $book;
+                        $relatedBookList[] = $book;
                     }
                 }
-
-                $this->conn->close();
             }
+
+            $this->conn->close();
 
             if (count($relatedBookList) == 0) return null;
             return $relatedBookList;
@@ -276,5 +276,40 @@
             if (!$book->getId()) return null; // no book with given ID found
 
             return $book;
+        }
+
+        public function searchBookByName($title)
+        {
+            $this->conn = $this->connect();
+
+            $query = "SELECT * FROM books WHERE title LIKE ?";
+            $param = "%$title%";
+            if ($stmt=$this->conn->prepare($query)) {
+                $stmt->bind_param("s",$param);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $searchResult = array();
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $book = new Book() ;
+                        $book->setId($row['id']);
+                        $book->setTitle($row['title']);
+                        $book->setDescription($row['description']);
+                        $book->setPrice($row['price']);
+                        $book->setOldPrice($row['old_price']);
+                        $book->setQuantity($row['quantity']);
+                        $book->setAuthor($row['author']);
+                        $book->setPublisher($row['publisher']);
+                        $book->setIsBestSeller($row['is_best_seller']);
+                        $book->setImage($row['image']);
+                        $searchResult[] = $book;
+                    }
+                } 
+                $stmt->close();
+            }
+           
+            $this->conn->close();
+
+            return $searchResult;
         }
     }

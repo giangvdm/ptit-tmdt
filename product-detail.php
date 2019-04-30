@@ -306,8 +306,7 @@
                             <!-- Categories -->
                             <?php include('include/widget-category.php'); ?>
 
-                            <!-- Filter by price -->
-                            <?php include('include/widget-filter-by-price.php'); ?>
+                            <!-- Filter by price widget was here -->
 
                             <!-- Product tag section was here -->
 

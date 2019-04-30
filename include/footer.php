@@ -10,22 +10,6 @@
                             </a>
                             <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages</p>
                         </div>
-                        <div class="footer__content">
-                            <ul class="social__net social__net--2 d-flex justify-content-center">
-                                <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-                                <li><a href="#"><i class="bi bi-google"></i></a></li>
-                                <li><a href="#"><i class="bi bi-twitter"></i></a></li>
-                                <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
-                                <li><a href="#"><i class="bi bi-youtube"></i></a></li>
-                            </ul>
-                            <ul class="mainmenu d-flex justify-content-center">
-                                <li><a href="index.html">Xu hướng</a></li>
-                                <li><a href="index.html">Bán chạy nhất</a></li>
-                                <li><a href="index.html">Tất cả sản phẩm</a></li>
-                                <li><a href="index.html">Câu hỏi thường gặp</a></li>
-                                <li><a href="index.html">Liên hệ</a></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>

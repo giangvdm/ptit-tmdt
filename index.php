@@ -264,31 +264,57 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="section__title text-center pb--50">
+                        <div class="section__title text-center">
                             <h2 class="title__be--2">Sản phẩm <span class="color--theme">Bán chạy </span></h2>
                             <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered lebmid alteration in some ledmid form</p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="slider center">
+                <div class="furniture--4 border--round arrows_style owl-carousel owl-theme row mt--50">
                 <?php
-                    $bestSellerBookList = $bookDao->listBestSellerBooks(12);
+                    $bestSellerBookList = $bookDao->listBestSellerBooks(15);
 
                     foreach ($bestSellerBookList as $bestSellerBook) {
                 ?>
-                <div class="product product__style--3">
+                <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                     <div class="product__thumb">
                         <a class="first__img" href="controller/BookController.php?id=<?php echo $bestSellerBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
+                        <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $bestSellerBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
+                        <?php
+                            if ($bestSellerBook->getIsBestSeller()):
+                        ?>
+                                <div class="hot__box">
+                                    <span class="hot-label">BÁN CHẠY</span>
+                                </div>
+                        <?php
+                            endif;
+                        ?>
                     </div>
                     <div class="product__content content--center">
+                        <h4><a href="product-detail.php"><?php echo $bestSellerBook->getTitle(); ?></a></h4>
+                        <ul class="prize d-flex">
+                            <li><?php echo $bestSellerBook->getPrice(); ?> VNĐ</li>
+                            <?php 
+                                if ($bestSellerBook->getOldPrice()): 
+                            ?>
+                                    <li class="old_prize">
+                                        <?php echo $bestSellerBook->getOldPrice(); ?> VNĐ
+                                    </li>
+                            <?php
+                                endif;
+                            ?>
+                        </ul>
                         <div class="action">
                             <div class="actions_inner">
                                 <ul class="add_to_links">
                                     <li>
-                                        <a class="cart" href="controller/addCart.php?id=<?php echo $bestSellerBook->getId(); ?>&&quantity=1"><i class="bi bi-shopping-cart-full"></i></a>
+                                        <a class="cart" href="cart.php"><i class="bi bi-shopping-cart-full"></i></a>
                                     </li>
-                                    <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#<?php echo "modal-" . $bestSellerBook->getId(); ?>"><i class="bi bi-search"></i></a></li>
+                                    <li>
+                                        <a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#<?php echo "modal-" . $bestSellerBook->getId(); ?>">
+                                            <i class="bi bi-search"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

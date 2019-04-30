@@ -1,7 +1,6 @@
 <?php
     if (isset($_SESSION['relatedBookList'])):
         $relatedBookList = $_SESSION['relatedBookList'];
-        var_dump($relatedBookList);
 ?>
     <div class="section__title text-center">
         <h2 class="title__be--2">Các sản phẩm liên quan</h2>

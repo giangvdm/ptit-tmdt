@@ -92,7 +92,20 @@
                                         <!-- <a class="nav-item nav-link active" data-toggle="tab" href="#nav-grid" role="tab"><i class="fa fa-th"></i></a>
 			                            <a class="nav-item nav-link" data-toggle="tab" href="#nav-list" role="tab"><i class="fa fa-list"></i></a> -->
                                     </div>
-                                    <p>Tìm thấy <?php echo count($_SESSION['bookList']); ?> kết quả </p>
+                                    <p>
+                                        Tìm thấy 
+                                        <?php 
+                                            if (isset($_GET['category'])) {
+                                                echo count($_SESSION['bookList']);
+                                            }
+                                            else if (isset($_GET['search-query'])) {
+                                                echo count($_SESSION['searchResults']);
+                                            }
+                                            else {
+                                                echo "0";
+                                            }
+                                        ?> kết quả
+                                    </p>
                                     <div class="orderby__wrapper">
                                         <span>Sắp xếp theo</span>
                                         <form action="controller/BookController.php" method="GET" style="display: inline;">
@@ -112,11 +125,13 @@
                             <div class="shop-grid tab-pane fade show active" id="nav-grid" role="tabpanel">
                                 <div class="row">
                                     <?php
-										if (!isset($_GET['category'])) {
+										if (!isset($_GET['category']) && !isset($_GET['id']) && !isset($_GET['search-query'])) {
 											header('location:index.php');
-										}
-
-										foreach ($_SESSION['bookList'] as $book) {
+                                        }
+                                        
+                                        // List Books by Category
+                                        if (isset($_GET['category'])):
+										    foreach ($_SESSION['bookList'] as $book) {
 									?>
                                     <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                         <div class="product__thumb">
@@ -163,7 +178,61 @@
                                         </div>
                                     </div>
                                     <?php
-										}
+                                            }
+                                        elseif (isset($_GET['search-query'])):
+
+                                            // List Books by Search query
+                                            foreach ($_SESSION['searchResults'] as $searchedBook) {
+                                    ?>
+                                    <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
+                                        <div class="product__thumb">
+                                            <a class="first__img" href="controller/BookController.php?id=<?php echo $searchedBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
+                                            <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $searchedBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
+                                            <?php
+                                                if ($searchedBook->getIsBestSeller()):
+                                            ?>
+                                            <div class="hot__box">
+                                                <span class="hot-label">BÁN CHẠY</span>
+                                            </div>
+                                            <?php
+                                                endif;
+                                            ?>
+                                        </div>
+                                        <div class="product__content content--center">
+                                            <h4><a href="product-detail.php"><?php echo $searchedBook->getTitle(); ?></a></h4>
+                                            <ul class="prize d-flex">
+                                                <li><?php echo $searchedBook->getPrice(); ?></li>
+                                                <?php 
+                                                    if ($searchedBook->getOldPrice()): 
+                                                ?>
+                                                <li class="old_prize">
+                                                    <?php echo $searchedBook->getOldPrice(); ?>
+                                                </li>
+                                                <?php
+                                                    endif;
+                                                ?>
+                                            </ul>
+                                            <div class="action">
+                                                <div class="actions_inner">
+                                                    <ul class="add_to_links">
+                                                        <li>
+                                                            <a class="cart" href="controller/addCart.php?id=<?php echo $searchedBook->getId(); ?>&quantity=1"><i class="bi bi-shopping-cart-full"></i></a>
+                                                        </li>
+                                                        <li>
+                                                            <a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#<?php echo "modal-" . $searchedBook->getId(); ?>">
+                                                                <i class="bi bi-search"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                            }
+                                        else:
+                                            header('location:index.php');
+                                        endif;
 									?>
                                 </div>
 
@@ -183,8 +252,18 @@
         <!-- QUICKVIEW PRODUCT -->
         <div id="quickview-wrapper">
             <?php
-                foreach ($_SESSION['bookList'] as $book) {
-                    include('include/quick-view.php');
+                if (isset($_GET['category'])) {
+                    foreach ($_SESSION['bookList'] as $book) {
+                        include('include/quick-view.php');
+                    }
+                }
+                else if (isset($_GET['search-query'])) {
+                    foreach ($_SESSION['searchResults'] as $book) {
+                        include('include/quick-view.php');
+                    }
+                }
+                else {
+                    //
                 }
             ?>
         </div>
