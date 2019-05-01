@@ -127,7 +127,7 @@
 										<select class="form-control js-location-select js-address-update" name="ward" id="ward-select"></select>
 									</div>
 									<div class="input__box">
-										<label for="address">Số nhà, tên đường: </label>
+										<label for="address">Địa chỉ </label>
 										<input type="text" name="address" class="js-address-update" aria-describedby="addressInputHelp">
 										<small id="addressInputHelp" class="form-text text-muted">Địa chỉ hiện tại: <?php if (isset($user)) echo $user->getAddress(); ?></small>
 									</div>
