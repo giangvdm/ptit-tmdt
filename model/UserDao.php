@@ -120,8 +120,7 @@ class UserDao extends Database
 
         $sqlUpdateCustomerInfo = "UPDATE users SET accname = ?, name = ?, email = ?, address = ? WHERE id = ?";
 
-        $oldAddress = $arr['address'];
-        $newAddress = explode("-", $arr['address'])[0];
+        $newAddress = $arr['address'];
 
         if (isset($arr['ward'])) {
             $newAddress = $newAddress . "-" . $arr['ward'];
@@ -132,8 +131,6 @@ class UserDao extends Database
         if (isset($arr['province'])) {
             $newAddress = $newAddress . "-" . $arr['province'];
         }
-
-        if (!isset($arr['ward']) && !isset($arr['district']) && !isset($arr['province'])) $newAddress = $oldAddress;
 
         if ($stmt = $this->conn->prepare($sqlUpdateCustomerInfo)) {
             $stmt->bind_param("ssssi", $arr['username'], $arr['name'], $arr['email'], $newAddress, $id);

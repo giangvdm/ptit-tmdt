@@ -98,9 +98,15 @@
 										<label for="email">Email <span>*</span></label>
 										<input type="text" name="email" value="<?php if (isset($user)) echo $user->getEmail(); ?>" required>
 									</div>
+
+									<br>
+									<small>Nhập đầy đủ các trường dưới đây nếu bạn muốn cập nhật địa chỉ</small>
+									<hr>
+									<br>
+
 									<div class="input__box">
 										<label for="province-select">Tỉnh/Thành phố:</label>
-										<select class="form-control js-location-select" name="province" id="province-select">
+										<select class="form-control js-location-select js-address-update" name="province" id="province-select">
 											<?php
 												$sql_address = "SELECT * FROM province order by name;";
 												$query_address = mysqli_query($con, $sql_address);
@@ -113,16 +119,17 @@
 										</select>
 									</div>
 									<div class="input__box">
-										<label for="district-select">Quận/Huyện:</label>
-										<select class="form-control js-location-select" name="district" id="district-select"></select>
+										<label for="district-select">Quận/Huyện</label>
+										<select class="form-control js-location-select js-address-update" name="district" id="district-select"></select>
 									</div>
 									<div class="input__box">
-										<label for="ward-select">Xã/Phường:</label>
-										<select class="form-control js-location-select" name="ward" id="ward-select"></select>
+										<label for="ward-select">Xã/Phường</label>
+										<select class="form-control js-location-select js-address-update" name="ward" id="ward-select"></select>
 									</div>
 									<div class="input__box">
-										<label for="address">Địa chỉ <span>*</span></label>
-										<input type="text" name="address" value="<?php if (isset($user)) echo $user->getAddress(); ?>" required>
+										<label for="address">Địa chỉ</label>
+										<input type="text" name="address" class="js-address-update" aria-describedby="addressInputHelp">
+										<small id="addressInputHelp" class="form-text text-muted">Địa chỉ hiện tại: <?php if (isset($user)) echo $user->getAddress(); ?></small>
 									</div>
 									<div class="form__btn">
 										<button type="submit" name="account-update">Cập nhật</button>
@@ -177,6 +184,7 @@
 	<script src="js/active.js"></script>
 	<script src="js/location-select.js"></script>
 	<script src="js/change-password.js"></script>
+	<script src="js/update-address.js"></script>
 
 </body>
 </html>
