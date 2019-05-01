@@ -8,7 +8,7 @@
                             <a href="index.html">
                                 <img src="images/logo/3.png" alt="logo">
                             </a>
-                            <p>Shop book uy tín nhất tại Việt Nam <br>Hãy tìm và mua những cuốn sách hay nhất tại đây nhé các bạn <br>shopbook@gmail.com<br>0966488888</p>
+                            <p>Book Shop uy tín nhất tại Việt Nam <br>Hãy tìm và mua những cuốn sách hay nhất tại đây nhé các bạn <br>vankiennguyen182@gmail.com<br>0966488888</p>
                         </div>
                     </div>
                 </div>

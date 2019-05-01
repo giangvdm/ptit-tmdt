@@ -18,3 +18,10 @@
 .footer-static-top {
 	padding: 50px 0;
 }
+.product__content h4, .product-info h1,.product__info__main h1, td.product-name a {
+	text-transform: capitalize;
+	font-family: "Roboto", sans-serif;
+}
+.wedget__title {
+	font-family: "Roboto", sans-serif;
+}

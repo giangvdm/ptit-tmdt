@@ -11,6 +11,11 @@
         $row1 = mysqli_fetch_assoc($query);
         $id = $row1['provinceid'];
 
+        $sql1 = "SELECT * from district where districtid = 0";
+        $result = $con->query($sql1);
+        $rowr = $result->fetch_assoc();
+        echo("<option value=\"".$rowr['name'] ."\">".$rowr['name'] ."</option>");
+
         $sql_add = "SELECT * FROM district where provinceid = '".$id ."';";
         $query_add = mysqli_query($con,$sql_add);
         if (mysqli_num_rows($query_add) > 0){
@@ -25,6 +30,11 @@
         $query = mysqli_query($con,$sql);
         $row1 = mysqli_fetch_assoc($query);
         $id = $row1['districtid'];
+        
+        $sql1 = "SELECT * from ward where wardid = 0";
+        $result = $con->query($sql1);
+        $rowr = $result->fetch_assoc();
+        echo("<option value=\"".$rowr['name'] ."\">".$rowr['name'] ."</option>");
 
         $sql_add = "SELECT * FROM ward where districtid = '".$id ."';";
         $query_add = mysqli_query($con,$sql_add);
