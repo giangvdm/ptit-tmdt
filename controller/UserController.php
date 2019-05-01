@@ -48,6 +48,10 @@
         $isAccountUpdated = $userDao->updateCustomerInfo($customerId, $info);
 
         if ($isAccountUpdated) {
+            $currentUser = unserialize($_SESSION['user']);
+            $updatedUser = new User();
+            $updatedUser = $userDao->loginCheck($currentUser->getAccname(), $currentUser->getPassword());
+            $_SESSION['user'] = serialize($updatedUser);
             echo "<script>alert('Cập nhật thông tin tài khoản thành công'); location = '../my-account.php';</script>";
         }
         else {

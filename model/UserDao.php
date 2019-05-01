@@ -5,7 +5,8 @@ require 'Database.php';
 
 class UserDao extends Database
 {
-    public function loginCheck($username,$password){
+    public function loginCheck($username,$password)
+    {
         $this->conn = $this->connect();
 		$query = "SELECT * FROM users WHERE accname = ? ";
         $users = null ;
@@ -34,6 +35,7 @@ class UserDao extends Database
         }
         
     }
+
     public function register($accname,$password,$name,$email,$address){
         $this->conn = $this->connect();
         $query = "INSERT into users (accname,name,password,email,address)
@@ -118,17 +120,20 @@ class UserDao extends Database
 
         $sqlUpdateCustomerInfo = "UPDATE users SET accname = ?, name = ?, email = ?, address = ? WHERE id = ?";
 
-        $newAddress = $arr['address'];
+        $oldAddress = $arr['address'];
+        $newAddress = explode("-", $arr['address'])[0];
 
-        if (isset($arr['province'])) {
-            $newAddress = $newAddress . "-" . $arr['province'];
+        if (isset($arr['ward'])) {
+            $newAddress = $newAddress . "-" . $arr['ward'];
         }
         if (isset($arr['district'])) {
             $newAddress = $newAddress . "-" . $arr['district'];
         }
-        if (isset($arr['ward'])) {
-            $newAddress = $newAddress . "-" . $arr['ward'];
+        if (isset($arr['province'])) {
+            $newAddress = $newAddress . "-" . $arr['province'];
         }
+
+        if (!isset($arr['ward']) && !isset($arr['district']) && !isset($arr['province'])) $newAddress = $oldAddress;
 
         if ($stmt = $this->conn->prepare($sqlUpdateCustomerInfo)) {
             $stmt->bind_param("ssssi", $arr['username'], $arr['name'], $arr['email'], $newAddress, $id);
