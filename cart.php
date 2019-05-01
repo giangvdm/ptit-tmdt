@@ -111,7 +111,7 @@
                         <div class="cartbox__btn">
                             <ul class="cart__btn__list d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">
                                 <li><a href="index.php">Về trang chủ</a></li>
-                                <li><a href="controller/buyItem.php">Thanh Toán</a></li>
+                                <li><a href="controller/buyItem.php">Mua Hàng</a></li>
                             </ul>
                         </div>
                         <?php endif;?>

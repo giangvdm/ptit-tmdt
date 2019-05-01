@@ -100,7 +100,7 @@
 											while ($row = mysqli_fetch_assoc($query_address)) {
 												// echo ("<option value=\"" . $row['provinceid'] . "\">" . $row['name'] . "</option>");
 
-												echo ("<option value=\"" . $row['name'] . "\">" . $row['name'] . "</option>");
+												echo ("<option required value=\"" . $row['name'] . "\">" . $row['name'] . "</option>");
 											}
 										}
 										?>
@@ -108,14 +108,14 @@
 								</div>
 								<div class="form-group">
 									<label for="district-select">Quận/Huyện:</label>
-									<select class="form-control js-location-select" name="district" id="district-select"></select>
+									<select required class="form-control js-location-select" name="district" id="district-select"></select>
 								</div>
 								<div class="form-group">
 									<label for="ward-select">Xã/Phường:</label>
-									<select class="form-control js-location-select" name="ward" id="ward-select"></select>
+									<select required class="form-control js-location-select" name="ward" id="ward-select"></select>
 								</div>
 								<div class="single-contact-form">
-									<input type="text" name="address" placeholder="Địa chỉ*" required>
+									<input id="address"type="text" name="address" placeholder="Địa chỉ*" required>
 								</div>
 								<div class="contact-btn">
 									<button type="submit" name="register">Đăng ký</button>

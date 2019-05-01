@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="mini_action checkout">
                                     <?php if(!empty($_SESSION['cart'])) :?>
-                                    <a class="checkout__btn" href="controller/buyItem.php">Thanh toán</a>
+                                    <a class="checkout__btn" href="controller/buyItem.php">Mua Hàng</a>
                                 </div>
                                 <div class="single__items">
                                     <div class="miniproduct">
