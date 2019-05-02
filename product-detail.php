@@ -91,24 +91,24 @@
                         <div class="wn__single__product">
                             <div class="row">
                                 <div class="col-lg-6 col-12">
-                                    <div class="wn__fotorama__wrapper">
-                                        <div class="fotorama wn__fotorama__action" data-nav="thumbs">
-                                            <a href="1.jpg"><img style="height: 565px;width: 450px;" src="<?=$currentBook->getImage()?>" alt=""></a>
-                                            <!-- <a href="2.jpg"><img src="images/product/2.jpg" alt=""></a>
+
+
+                                    <img style="width: 450px;height:565px;" src="<?=$currentBook->getImage()?>" alt="">
+                                    <!-- <a href="2.jpg"><img src="images/product/2.jpg" alt=""></a>
 													<a href="3.jpg"><img src="images/product/3.jpg" alt=""></a>
 													<a href="4.jpg"><img src="images/product/4.jpg" alt=""></a>
 													<a href="5.jpg"><img src="images/product/5.jpg" alt=""></a>
 													<a href="6.jpg"><img src="images/product/6.jpg" alt=""></a>
 													<a href="7.jpg"><img src="images/product/7.jpg" alt=""></a>
 													<a href="8.jpg"><img src="images/product/8.jpg" alt=""></a> -->
-                                        </div>
-                                    </div>
+
+
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="product__info__main">
                                         <h1><?php echo $currentBook->getTitle(); ?></h1>
                                         <div class="price-box">
-                                            <span><?php echo $currentBook->getPrice(); ?> VNĐ</span>
+                                            <span><?php echo $currentBook->getPrice(); ?>đ</span>
                                         </div>
                                         <div class="product__overview">
                                             <p>Tác giả: <?php echo $currentBook->getAuthor(); ?></p>
