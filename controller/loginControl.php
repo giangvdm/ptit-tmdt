@@ -14,7 +14,7 @@ if (isset($_POST['login'])) {
     $user = $Userdao->loginCheck($username, $password);
 
     if ($user == null) {
-        echo "<script>alert('tài khoản không tồn tại'); location = '../login.php'; </script>";
+        echo "<script>alert('tài khoản hoặc mật khẩu bị sai'); location = '../login.php'; </script>";
 
         // header("location:../login.php");
 

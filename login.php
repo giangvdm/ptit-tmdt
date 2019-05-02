@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="vi">
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -22,11 +23,12 @@
 	<link rel="stylesheet" href="css/main.css">
 
 	<!-- Cusom css -->
-   <link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/custom.css">
 
 	<!-- Modernizer js -->
 	<script src="js/vendor/modernizr-3.5.0.min.js"></script>
 </head>
+
 <body>
 	<!--[if lte IE 9]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -34,7 +36,7 @@
 
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
-		
+
 		<!-- Header -->
 		<?php include('include/header.php'); ?>
 		<!-- //Header -->
@@ -42,52 +44,58 @@
 		<?php include('include/search.php'); ?>
 		<!-- End Search Popup -->
 
-        <!-- Start Bradcaump area -->
-        <div class="ht__bradcaump__area bg-image--6">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="bradcaump__inner text-center">
-                        	<h2 class="bradcaump-title">Đăng nhập</h2>
-                            <nav class="bradcaump-content">
-                              <a class="breadcrumb_item" href="index.html">Trang chủ</a>
-                              <span class="brd-separetor">/</span>
-                              <span class="breadcrumb_item active">Đăng nhập</span>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Bradcaump area -->
-        <!-- Start Contact Area -->
-        <section class="wn_contact_area bg--white pt--80 pb--80">
-        	<div class="container">
-        		<div class="row">
-        			<div class="offset-lg-2 col-lg-8 col-md-12">
-        				<div class="contact-form-wrap">
-        					<h2 class="contact__title">Đăng nhập vào tài khoản thành viên</h2>
-        					<p>Tiến hành đăng nhập để có trải nghiệm sử dụng dịch vụ tốt hơn. </p>
-                            <form action="controller/loginControl.php" method="post">
-                                <div class="single-contact-form">
-                                    <input type="text" name="username" placeholder="Tên tài khoản" required>
-                                </div>
-                                <div class="single-contact-form">
-                                    <input type="password" name="password" placeholder="Mật khẩu" required>
-                                </div>
-                                <div class="contact-btn">
-                                    <button type="submit" name="login">Đăng nhập</button>
-                                </div>
-                            </form>
-                        </div> 
-                        <div class="form-output">
-                            <p class="form-messege">
-                        </div>
-        			</div>
-        		</div>
-        	</div>
-        </section>
-        <!-- End Contact Area -->
+		<!-- Start Bradcaump area -->
+		<div class="ht__bradcaump__area bg-image--6">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="bradcaump__inner text-center">
+							<h2 class="bradcaump-title">Đăng nhập</h2>
+							<nav class="bradcaump-content">
+								<a class="breadcrumb_item" href="index.html">Trang chủ</a>
+								<span class="brd-separetor">/</span>
+								<span class="breadcrumb_item active">Đăng nhập</span>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Bradcaump area -->
+		<!-- Start Contact Area -->
+		<section class="wn_contact_area bg--white pt--80 pb--80" style="min-height:700px;">
+			<div class="container">
+				<div class="row">
+					<div class="offset-lg-2 col-lg-8 col-md-12">
+						<div class="contact-form-wrap">
+							<h2 class="contact__title">Đăng nhập vào tài khoản thành viên</h2>
+							<p>Tiến hành đăng nhập để có trải nghiệm sử dụng dịch vụ tốt hơn. </p>
+							<form action="controller/loginControl.php" method="post">
+								<div class="single-contact-form">
+									<input type="text" name="username" placeholder="Tên tài khoản" required>
+								</div>
+								<div class="single-contact-form">
+									<input id="password" type="password" name="password" pattern=".{8,}" placeholder="Mật khẩu" aria-describedby="passwordHelp" required>
+									<!-- (?=.*\d)(?=.*[a-z])(?=.*[A-Z]). -->
+									<small id="passwordHelp" class="form-text text-muted">Mật khẩu phải có ít nhất 8 kí tự</small>
+								</div>
+								<div class="contact-btn">
+									<button type="submit" name="login">Đăng nhập</button>
+								</div>
+							</form>
+							<br>
+							<div id="message" class="alert">
+								<strong id="ok"></strong>
+							</div>
+						</div>
+						<div class="form-output">
+							<p class="form-messege">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Contact Area -->
 
 		<!-- Footer Area -->
 		<?php include('include/footer.php'); ?>
@@ -103,6 +111,8 @@
 	<script src="js/plugins.js"></script>
 
 	<script src="js/active.js"></script>
-	
+	<script src="js/check-password.js"></script>
+
 </body>
+
 </html>

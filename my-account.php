@@ -1,11 +1,12 @@
 ﻿<?php
-	$con = mysqli_connect("localhost", "root", "", "bookstor");
-	mysqli_autocommit($con, True);
-	mysqli_set_charset($con, 'utf8');
+$con = mysqli_connect("localhost", "root", "", "bookstor");
+mysqli_autocommit($con, True);
+mysqli_set_charset($con, 'utf8');
 ?>
 
 <!doctype html>
 <html class="no-js" lang="vi">
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -26,13 +27,14 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/plugins.css">
 	<link rel="stylesheet" href="css/main.css">
-	
+
 	<!-- Cusom css -->
-   <link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/custom.css">
 
 	<!-- Modernizer js -->
 	<script src="js/vendor/modernizr-3.5.0.min.js"></script>
 </head>
+
 <body>
 	<!--[if lte IE 9]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -47,34 +49,33 @@
 		<!-- Start Search Popup -->
 		<?php include('include/search.php'); ?>
 		<!-- End Search Popup -->
-		
+
 		<!-- Start Bradcaump area -->
-        <div class="ht__bradcaump__area bg-image--6">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="bradcaump__inner text-center">
-                        	<h2 class="bradcaump-title">Thiết lập tài khoản</h2>
-                            <nav class="bradcaump-content">
-                              <a class="breadcrumb_item" href="index.php">Trang chủ</a>
-                              <span class="brd-separetor">/</span>
-                              <span class="breadcrumb_item active">Thiết lập tài khoản</span>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Bradcaump area -->
-		
+		<div class="ht__bradcaump__area bg-image--6">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="bradcaump__inner text-center">
+							<h2 class="bradcaump-title">Thiết lập tài khoản</h2>
+							<nav class="bradcaump-content">
+								<a class="breadcrumb_item" href="index.php">Trang chủ</a>
+								<span class="brd-separetor">/</span>
+								<span class="breadcrumb_item active">Thiết lập tài khoản</span>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Bradcaump area -->
+
 		<!-- Start My Account Area -->
 		<?php
-			if (isset($_SESSION['user'])) {
-				$user = unserialize($_SESSION['user']);
-			}
-			else {
-				$user = null;
-			}
+		if (isset($_SESSION['user'])) {
+			$user = unserialize($_SESSION['user']);
+		} else {
+			$user = null;
+		}
 		?>
 
 		<section class="my_account_area pt--80 pb--55 bg--white">
@@ -108,13 +109,13 @@
 										<label for="province-select">Tỉnh/Thành phố:</label>
 										<select class="form-control js-location-select js-address-update" name="province" id="province-select">
 											<?php
-												$sql_address = "SELECT * FROM province order by name;";
-												$query_address = mysqli_query($con, $sql_address);
-												if (mysqli_num_rows($query_address) > 0) {
-													while ($row = mysqli_fetch_assoc($query_address)) {
-														echo ("<option value=\"" . $row['name'] . "\">" . $row['name'] . "</option>");
-													}
+											$sql_address = "SELECT * FROM province order by name;";
+											$query_address = mysqli_query($con, $sql_address);
+											if (mysqli_num_rows($query_address) > 0) {
+												while ($row = mysqli_fetch_assoc($query_address)) {
+													echo ("<option value=\"" . $row['name'] . "\">" . $row['name'] . "</option>");
 												}
+											}
 											?>
 										</select>
 									</div>
@@ -150,11 +151,12 @@
 									</div>
 									<div class="input__box">
 										<label>Mật khẩu mới <span>*</span></label>
-										<input type="password" name="new-password" id="js-new-password" required>
+										<input type="password" name="new-password" id="js-new-password password" pattern=".{8,}" aria-describedby="passwordHelp" required>
+										<small id="passwordHelp" class="form-text text-muted">Mật khẩu phải có ít nhất 8 kí tự</small>
 									</div>
 									<div class="input__box">
 										<label>Nhập lại mật khẩu <span>*</span></label>
-										<input type="password" name="repeat-password" id="js-repeat-password" aria-describedby="repeatPasswordHelp" required>
+										<input type="password" id="input" name="repeat-password" id="js-repeat-password" pattern=".{8,}" aria-describedby="repeatPasswordHelp" required>
 										<small id="repeatPasswordHelp" class="form-text text-muted">Xác nhận mật khẩu phải trùng với mật khẩu mới</small>
 									</div>
 									<div class="form__btn">
@@ -168,11 +170,11 @@
 			</div>
 		</section>
 		<!-- End My Account Area -->
-		
+
 		<!-- Footer Area -->
 		<?php include('include/footer.php'); ?>
 		<!-- //Footer Area -->
-		
+
 	</div>
 	<!-- //Main wrapper -->
 
@@ -185,6 +187,7 @@
 	<script src="js/location-select.js"></script>
 	<script src="js/change-password.js"></script>
 	<script src="js/update-address.js"></script>
-
+	<script src="js/check-password.js"></script>
 </body>
+
 </html>

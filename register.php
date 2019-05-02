@@ -1,7 +1,7 @@
 <?php
-	$con = mysqli_connect("localhost", "root", "", "bookstor");
-	mysqli_autocommit($con, True);
-	mysqli_set_charset($con, 'utf8');
+$con = mysqli_connect("localhost", "root", "", "bookstor");
+mysqli_autocommit($con, True);
+mysqli_set_charset($con, 'utf8');
 ?>
 <!doctype html>
 <html class="no-js" lang="vi">
@@ -80,7 +80,8 @@
 									<input type="text" name="username" placeholder="Tên tài khoản*" required>
 								</div>
 								<div class="single-contact-form">
-									<input type="password" name="password" placeholder="Mật khẩu*" required>
+									<input type="password" id="password" name="password" pattern=".{8,}" placeholder="Mật khẩu*" aria-describedby="passwordHelp" required>
+									<small id="passwordHelp" class="form-text text-muted">Mật khẩu phải có ít nhất 8 kí tự</small>
 								</div>
 								<div class="single-contact-form space-between">
 									<input type="text" name="name" placeholder="Tên*" required>
@@ -115,12 +116,16 @@
 									<select required class="form-control js-location-select" name="ward" id="ward-select"></select>
 								</div>
 								<div class="single-contact-form">
-									<input id="address"type="text" name="address" placeholder="Địa chỉ*" required>
+									<input id="address" type="text" name="address" placeholder="Địa chỉ*" required>
 								</div>
 								<div class="contact-btn">
 									<button type="submit" name="register">Đăng ký</button>
 								</div>
 							</form>
+							<br>
+							<div id="message" class="alert">
+								<strong id="ok"></strong>
+							</div>
 						</div>
 						<div class="form-output">
 							<p class="form-messege">
@@ -146,6 +151,7 @@
 
 	<script src="js/active.js"></script>
 	<script src="js/location-select.js"></script>
+	<script src="js/check-password.js"></script>
 </body>
 
 </html>

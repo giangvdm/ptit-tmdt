@@ -164,15 +164,19 @@
                 </div>
                 <div class="tab__container mt--60">
                     <?php
+                        $soManyBooks = array();
+
                         for ($i = 0; $i < $numberOfCategoryShown; $i++):
                     ?>
                     <div class="row single__tab tab-pane fade show" id="nav-<?php echo $someCategories[$i]->getName(); ?>" role="tabpanel">
                         <div class="product__indicator--4 arrows_style owl-carousel owl-theme">
                             <?php
-                                    $someBooks = $bookDao->listBookByFilter($someCategories[$i]->getId(), null, 12);
+                                $someBooks = $bookDao->listBookByFilter($someCategories[$i]->getId(), null, 12);
 
-                                    foreach ($someBooks as $book) {
-                                ?>
+                                $soManyBooks = array_merge($soManyBooks, $someBooks);
+
+                                foreach ($someBooks as $book) {
+                            ?>
                             <div class="single_product">
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                     <div class="product product__style--3">
@@ -180,28 +184,28 @@
                                             <a class="first__img" href="controller/BookController.php?id=<?php echo $book->getId(); ?>"><img style="width:270px;height:340px;" src="<?=$book->getImage()?>" alt="product image"></a>
                                             <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $book->getId(); ?>"><img style="width:270px;height:340px;" src="<?=$book->getImage()?>" alt="product image"></a>
                                             <?php
-                                                        if ($book->getIsBestSeller()):
-                                                    ?>
+                                                if ($book->getIsBestSeller()):
+                                            ?>
                                             <div class="hot__box">
                                                 <span class="hot-label">BÁN CHẠY</span>
                                             </div>
                                             <?php
-                                                        endif;
-                                                    ?>
+                                                endif;
+                                            ?>
                                         </div>
                                         <div class="product__content content--center">
                                             <h4><a href="product-detail.php"><?php echo $book->getTitle(); ?></a></h4>
                                             <ul class="prize d-flex">
                                                 <li><?php echo $book->getPrice(); ?>đ</li>
                                                 <?php 
-                                                            if ($book->getOldPrice()): 
-                                                        ?>
+                                                    if ($book->getOldPrice()): 
+                                                ?>
                                                 <li class="old_prize">
                                                     <?php echo $book->getOldPrice(); ?>đ
                                                 </li>
                                                 <?php
-                                                            endif;
-                                                        ?>
+                                                    endif;
+                                                ?>
                                             </ul>
                                             <div class="action">
                                                 <div class="actions_inner">
@@ -315,7 +319,7 @@
         <!-- QUICKVIEW PRODUCT -->
         <div id="quickview-wrapper">
             <?php
-                $quickViewList = array_unique(array_merge($newBookList,$bestSellerBookList), SORT_REGULAR);
+                $quickViewList = array_unique(array_merge($newBookList, $soManyBooks, $bestSellerBookList), SORT_REGULAR);
 
                 // New books quick views
                 foreach ($quickViewList as $book) {

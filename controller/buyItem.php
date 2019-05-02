@@ -21,7 +21,7 @@
         foreach($_SESSION['cart'] as $key=>$value){
             $orderDetailDao->addItem($last_id,$key,$value['qty']);
             $book = $bookDao->getBookById2($key);
-            $newQuantity = $book->getQuantity()-$value['qty'];
+            $newQuantity = $book->getQuantity() - $value['qty'];
             $bookDao->updateQuantity($key,$newQuantity);
             unset($key);
             unset($value);
@@ -30,7 +30,7 @@
         unset($_SESSION['bookcount']);
         unset($_SESSION['totalPrice']);
         header("Location: ../cart.php");
-    smtpmailer($user->getEmail(), "sale@ptitbook.com", "PTIT Books", "Cảm ơn bạn đã liên hệ", "Chúng tôi sẽ liên hệ lại với bạn sớm nhất có thể");
+    smtpmailer($user->getEmail(), "sale@ptitbook.com", "PTIT Books", "Cảm ơn bạn đã đặt hàng", "Đơn hàng số " . $last_id . " của bạn đang được xử lý. Chúng tôi sẽ liên hệ lại với bạn sớm nhất có thể.");
 
     }else{
         header("Location: ../login.php");

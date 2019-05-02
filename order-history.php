@@ -94,8 +94,8 @@
                                     <tr>
                                         <td><?=$order->getId()?></td>
                                         <td><?=$order->getTotalAmount()?></td>
-                                        <td><?=$order->getCreatedAt()?></td>
-                                        <td><?=$order->getTotalPrice()?></td>
+                                        <td><?=date("H:i:s m/d/Y", strtotime($order->getCreatedAt()))?></td>
+                                        <td><?=$order->getTotalPrice()?>đ</td>
                                         <td>
                                             <?php
                                             if($order->getStatus()==1){
@@ -107,7 +107,7 @@
                                             }
                                         ?>
                                         </td>
-                                        <td><a href="orderDetail.php?id=<?=$order->getId()?>">Chi tiết</a></td>
+                                        <td><a href="orderDetail.php?id=<?=$order->getId()?>">Xem chi tiết</a></td>
                                     </tr>
                                     <?php endforeach;?>
                                 </tbody>
@@ -122,8 +122,6 @@
         <!-- Footer Area -->
         <?php include('include/footer.php'); ?>
         <!-- //Footer Area -->
-
-        <?php var_dump($_SESSION['orderList']); ?>
 
     </div>
     <!-- //Main wrapper -->
