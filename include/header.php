@@ -18,7 +18,7 @@
                     <ul class="meninmenu d-flex justify-content-start">
                         <li class="drop with--one--item"><a href="index.php">Trang chủ</a></li>
                         <li class="drop"><a href="#">Danh mục</a>
-                            <div class="megamenu mega02">
+                            <div class="megamenu mega02" style="max-width: 300px;">
                                 <ul class="item">
                                     <!-- <li class="title">Shop Layout</li> -->
                                     <?php
@@ -28,9 +28,20 @@
 
                                         $catList = $catDao->getAllCategories();
 
-                                        foreach ($catList as $category) {
+                                        for ($i = 0; $i < count($catList)/2; $i++) {
+                                        // foreach ($catList as $category) {
                                     ?>
-                                    <li><a href="controller/BookController.php?category=<?php echo $category->getId(); ?>"><?php echo $category->getName(); ?></a></li>
+                                    <li><a href="controller/BookController.php?category=<?php echo $catList[$i]->getId(); ?>"><?php echo $catList[$i]->getName(); ?></a></li>
+                                    <?php
+                                        }
+                                    ?>
+                                </ul>
+                                <ul class="item">
+                                    <?php
+                                        for ($i = count($catList)/2; $i < count($catList); $i++) {
+                                        // foreach ($catList as $category) {
+                                    ?>
+                                    <li><a href="controller/BookController.php?category=<?php echo $catList[$i]->getId(); ?>"><?php echo $catList[$i]->getName(); ?></a></li>
                                     <?php
                                         }
                                     ?>

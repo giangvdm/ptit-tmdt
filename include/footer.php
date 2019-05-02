@@ -5,7 +5,7 @@
                 <div class="col-lg-12">
                     <div class="footer__widget footer__menu">
                         <div class="ft__logo">
-                            <a href="index.html">
+                            <a href="index.php">
                                 <img src="images/logo/3.png" alt="logo">
                             </a>
                             <p>Book Shop uy tín nhất tại Việt Nam <br>Hãy tìm và mua những cuốn sách hay nhất tại đây nhé các bạn <br>vankiennguyen182@gmail.com<br>0966488888</p>

@@ -118,10 +118,14 @@ class UserDao extends Database
     {
         $this->conn = $this->connect();
 
-        $sqlUpdateCustomerInfo = "UPDATE users SET accname = ?, name = ?, email = ?, address = ? WHERE id = ?";
+        $sqlUpdateCustomerInfo = "UPDATE users SET accname = ?, name = ?, email = ?";
 
-        $newAddress = $arr['address'];
+        $newAddress = null;
 
+        if (isset($arr['address'])) {
+            $newAddress = $newAddress . $arr['address'];
+            $sqlUpdateCustomerInfo = $sqlUpdateCustomerInfo . ", address = ?";
+        }
         if (isset($arr['ward'])) {
             $newAddress = $newAddress . "-" . $arr['ward'];
         }
@@ -132,8 +136,15 @@ class UserDao extends Database
             $newAddress = $newAddress . "-" . $arr['province'];
         }
 
+        $sqlUpdateCustomerInfo = $sqlUpdateCustomerInfo . " WHERE id = ?";
+
         if ($stmt = $this->conn->prepare($sqlUpdateCustomerInfo)) {
-            $stmt->bind_param("ssssi", $arr['username'], $arr['name'], $arr['email'], $newAddress, $id);
+            if ($newAddress != null) {
+                $stmt->bind_param("ssssi", $arr['username'], $arr['name'], $arr['email'], $newAddress, $id);
+            }
+            else {
+                $stmt->bind_param("sssi", $arr['username'], $arr['name'], $arr['email'], $id);
+            }
 
             if ($stmt->execute()) {
                 $this->conn->close();

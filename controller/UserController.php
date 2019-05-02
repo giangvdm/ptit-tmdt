@@ -26,22 +26,22 @@
         $username = $_POST['username'];
         $name = $_POST['name'];
         $email = $_POST['email'];
-        if (isset($_POST['province'])) $province = $_POST['province'];
+        if ($_POST['province'] != "") $province = $_POST['province'];
         if (isset($_POST['district'])) $district = $_POST['district'];
         if (isset($_POST['ward'])) $ward = $_POST['ward'];
-        $address = $_POST['address'];
+        if ($_POST['address'] != "") $address = $_POST['address'];
 
         // Construct new account info array
         $info = array(
             'id' => $customerId,
             'username' => $username,
             'name' => $name,
-            'email' => $email,
-            'address' => $address
+            'email' => $email
         );
-        if (isset($_POST['province'])) $info['province'] = $province;
-        if (isset($_POST['district'])) $info['district'] = $district;
+        if (isset($address)) $info['address'] = $address;
         if (isset($_POST['ward'])) $info['ward'] = $ward;
+        if (isset($_POST['district'])) $info['district'] = $district;
+        if (isset($province)) $info['province'] = $province;
 
         $userDao = new UserDao();
 
