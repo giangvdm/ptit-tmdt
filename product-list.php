@@ -173,9 +173,11 @@
                                             <div class="action">
                                                 <div class="actions_inner">
                                                     <ul class="add_to_links">
+                                                        <?php if($book->getQuantity()!=0):?>
                                                         <li>
                                                             <a class="cart" href="controller/addCart.php?id=<?php echo $book->getId(); ?>&quantity=1"><i class="bi bi-shopping-cart-full"></i></a>
                                                         </li>
+                                                        <?php endif;?>
                                                         <li>
                                                             <a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#<?php echo "modal-" . $book->getId(); ?>">
                                                                 <i class="bi bi-search"></i>
@@ -195,8 +197,8 @@
                                     ?>
                                     <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                         <div class="product__thumb">
-                                            <a class="first__img" href="controller/BookController.php?id=<?php echo $searchedBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
-                                            <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $searchedBook->getId(); ?>"><img src="images/books/demo.jpg" alt="product image"></a>
+                                            <a class="first__img" href="controller/BookController.php?id=<?php echo $searchedBook->getId(); ?>"><img style="height: 340px;width: 270px;" src="<?=$searchedBook->getImage()?>" alt="product image"> </a>
+                                            <a class="second__img animation1" href="controller/BookController.php?id=<?php echo $searchedBook->getId(); ?>"><img style="height: 340px;width: 270px;" src="<?=$searchedBook->getImage()?>" alt="product image"></a>
                                             <?php
                                                 if ($searchedBook->getIsBestSeller()):
                                             ?>
@@ -224,9 +226,11 @@
                                             <div class="action">
                                                 <div class="actions_inner">
                                                     <ul class="add_to_links">
+                                                        <?php if($searchedBook->getQuantity()!=0):?>
                                                         <li>
                                                             <a class="cart" href="controller/addCart.php?id=<?php echo $searchedBook->getId(); ?>&quantity=1"><i class="bi bi-shopping-cart-full"></i></a>
                                                         </li>
+                                                        <?php endif;?>
                                                         <li>
                                                             <a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#<?php echo "modal-" . $searchedBook->getId(); ?>">
                                                                 <i class="bi bi-search"></i>

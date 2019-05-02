@@ -27,9 +27,14 @@
                         <div class="quick-desc">
                             <?php echo $book->getDescription(); ?>
                         </div>
+                        <?php if($book->getQuantity()==0): ?>
+                        <p class="text-danger">Đã Hết hàng</p>
+                        <?php endif;?>
+                        <?php if($book->getQuantity()!=0): ?>
                         <div class="addtocart-btn">
                             <a href="./controller/addCart.php?id=<?=$book->getId()?>&quantity=1">Thêm vào giỏ hàng</a>
                         </div>
+                        <?php endif;?>
                     </div>
                 </div>
             </div>

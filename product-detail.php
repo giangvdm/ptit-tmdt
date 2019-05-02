@@ -113,15 +113,24 @@
                                         <div class="product__overview">
                                             <p>Tác giả: <?php echo $currentBook->getAuthor(); ?></p>
                                             <p>Nhà xuất bản: <?php echo $currentBook->getPublisher(); ?></p>
+                                            <?php
+                                                if($currentBook->getQuantity()==0):
+                                            ?>
+                                            <p class="text-danger">Đã Hết hàng</p>
+                                            <?php else:?>
+                                            <p>Số lượng trong kho: <?php echo $currentBook->getQuantity(); ?></p>
+                                            <?php endif;?>
                                         </div>
                                         <form action="controller/addCart.php" method="get">
                                             <div class="box-tocart d-flex">
                                                 <span>Số lượng</span>
-
                                                 <input id="qty" class="input-text qty" name="quantity" min="1" max="<?php echo  $currentBook->getQuantity(); ?>" value="1" title="Số lượng" type="number">
                                                 <input type="hidden" name="id" value="<?php echo $currentBook->getId();?>">
                                                 <div class="addtocart__actions">
-                                                    <button class="tocart" type="submit" title="Thêm vào giỏ hàng">Thêm vào giỏ hàng</button>
+                                                    <button <?php
+                                                        if($currentBook->getQuantity()==0){
+                                                            echo "disabled ";
+                                                            echo 'style="background:#7b7a7a; color: #b2b0b0;"';}?> class="tocart" type="submit" title="Thêm vào giỏ hàng">Thêm vào giỏ hàng</button>
                                                 </div>
                                                 <div class="product-addto-links clearfix">
                                                     <!-- "Add to Wishlist" and "Compare" were here -->
@@ -136,9 +145,9 @@
 
                                                     foreach ($catList as $category) {
                                                 ?>
-                                                        <a href="controller/BookController.php?category=<?php echo $category->getId(); ?>">
-                                                            <?php echo $category->getName(); ?>
-                                                        </a>
+                                                <a href="controller/BookController.php?category=<?php echo $category->getId(); ?>">
+                                                    <?php echo $category->getName(); ?>
+                                                </a>
                                                 <?php
                                                     }
                                                 ?>

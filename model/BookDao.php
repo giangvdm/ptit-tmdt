@@ -4,6 +4,16 @@
     
     class BookDAO extends Database
     {
+        public function updateQuantity($bookId,$quantity){
+            $this->conn = $this->connect();
+            $query = "UPDATE books SET quantity=? WHERE id=?";
+            if($stmt = $this->conn->prepare($query)){
+                $stmt->bind_param("ii",$quantity,$bookId);
+                $stmt->execute();
+                $stmt->close();
+            }
+            $this->conn->close();
+        }
         public function getBookById2($id){
             $this->conn = $this->connect();
             $query = "SELECT * FROM books WHERE id = ?";
