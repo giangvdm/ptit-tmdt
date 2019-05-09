@@ -628,7 +628,7 @@ a {
   margin-bottom: -30px; }
 
 /* Background Image */
-.bg-image--1 {
+/* .bg-image--1 {
   background-image: url(../images/bg/1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -672,7 +672,7 @@ a {
   background-image: url(../images/bg/9.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center; }
+  background-position: center center; } */
 
 /* spacing */
 .mt--20 {

@@ -1,6 +1,8 @@
 <?php
     require('./model/BookDao.php');
     $bookDao = new BookDao();
+    require('./model/SliderDao.php');
+    $sliderDao = new SliderDao();
 ?>
 <!doctype html>
 <html class="no-js" lang="vi">
@@ -49,16 +51,16 @@
 
         <!-- Start Slider area -->
         <div class="slider-area brown__nav slider--15 slide__activation slide__arrow01 owl-carousel owl-theme">
-            <!-- Start Single Slide -->
-            <div class="slide animation__style10 bg-image--1 fullscreen align__center--left">
-
-            </div>
-            <!-- End Single Slide -->
-            <!-- Start Single Slide -->
-            <div class="slide animation__style10 bg-image--7 fullscreen align__center--left">
-
-            </div>
-            <!-- End Single Slide -->
+            <?php
+                $allSliders = $sliderDao->getAllSliders();
+                foreach ($allSliders as $slider):
+            ?>
+                <!-- Start Single Slide -->
+                <div class="slide animation__style10 fullscreen align__center--left slider-item" style="background-image: url('<?= $slider->getImage() ?>')"></div>
+                <!-- End Single Slide -->
+            <?php
+                endforeach;
+            ?>
         </div>
         <!-- End Slider area -->
 
