@@ -235,7 +235,7 @@
         {
             $this->conn = $this->connect();
 
-            $sqlGetBookCategories = "SELECT book_category.id_category FROM books RIGHT JOIN book_category ON books.id = book_category.id_book WHERE books.id = ?";
+            $sqlGetBookCategories = "SELECT book_category.id_category FROM books INNER JOIN book_category ON books.id = book_category.id_book WHERE books.id = ?";
 
             $categoryList = array();
 

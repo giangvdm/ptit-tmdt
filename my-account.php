@@ -187,7 +187,7 @@ mysqli_set_charset($con, 'utf8');
 	<script src="js/location-select.js"></script>
 	<script src="js/change-password.js"></script>
 	<script src="js/update-address.js"></script>
-	<script src="js/check-password.js"></script>
+	<!-- <script src="js/check-password.js"></script> -->
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-var myInput = document.getElementById("input");
+var myInput = document.getElementById("password");
 var message = document.getElementById("message");
 var ok = document.getElementById("ok");
 // When the user clicks on the password field, show the message box
