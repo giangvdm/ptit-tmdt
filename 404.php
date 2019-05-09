@@ -58,7 +58,7 @@
 		</div>
 		<!-- End Search Popup -->
         <!-- Start Bradcaump area -->
-        <div class="ht__bradcaump__area bg-image--5">
+        <div class="ht__bradcaump__area bg-image--default">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">

@@ -27,8 +27,12 @@
 	font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-.slider-item {
+.slider-item, .bg-image--default {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
+}
+
+.bg-image--default {
+	background-image: url('../images/bg/1.jpg');
 }
