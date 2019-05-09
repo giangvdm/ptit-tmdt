@@ -100,13 +100,13 @@
                                     ?>
                                     <?php foreach($listOrderDetail as $orderDetail): ?>
                                     <tr>
-                                        <td class="product-thumbnail"><a href="#"><img style="width:80px;height:100px;" src="<?=$bookDao->getBookById($orderDetail->getBookId())->getImage()?>" alt="product img"></a></td>
-                                        <td class="product-name"><a href="#"><?=$bookDao->getBookById($orderDetail->getBookId())->getTitle()?></a></td>
+                                        <td class="product-thumbnail"><a href="controller/BookController.php?id=<?=$bookDao->getBookById($orderDetail->getBookId())->getId()?>"><img style="width:80px;height:100px;" src="<?=$bookDao->getBookById($orderDetail->getBookId())->getImage()?>" alt="product img"></a></td>
+                                        <td class="product-name"><a href="controller/BookController.php?id=<?=$bookDao->getBookById($orderDetail->getBookId())->getId()?>"><?=$bookDao->getBookById($orderDetail->getBookId())->getTitle()?></a></td>
                                         <td class="product-price"><span class="amount"><?=$bookDao->getBookById($orderDetail->getBookId())->getPrice()?>đ</span></td>
                                         <td class="product-price"><span class="amount"><?=$orderDetail->getQuantity()?></span></td>
-                                        <td class="product-subtotal"><?=$bookDao->getBookById($orderDetail->getBookId())->getPrice()*$orderDetail->getQuantity()?>đ</td>
+                                        <td class="product-subtotal"><?=number_format($bookDao->getBookById($orderDetail->getBookId())->getPriceValue()*$orderDetail->getQuantity())?>đ</td>
                                         <?php 
-                                            $totalPrice += $bookDao->getBookById($orderDetail->getBookId())->getPrice()*$orderDetail->getQuantity();
+                                            number_format($totalPrice += $bookDao->getBookById($orderDetail->getBookId())->getPriceValue()*$orderDetail->getQuantity());
                                         ?>
                                     </tr>
                                     <?php endforeach; ?>
@@ -126,14 +126,14 @@
                                 </ul>
                                 <ul class="cart__total__tk">
                                     <?php if(isset($listOrderDetail)):?>
-                                    <li><?=$totalPrice?>đ</li>
+                                    <li><?=number_format($totalPrice)?>đ</li>
                                     <li>0đ</li>
                                     <?php endif;?>
                                 </ul>
                             </div>
                             <div class="cart__total__amount">
                                 <span>Thành tiền</span>
-                                <span><?=$totalPrice?>đ</span>
+                                <span><?=number_format($totalPrice)?>đ</span>
                             </div>
                         </div>
                     </div>

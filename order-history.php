@@ -95,7 +95,7 @@
                                         <td><?=$order->getId()?></td>
                                         <td><?=$order->getTotalAmount()?></td>
                                         <td><?=date("H:i:s m/d/Y", strtotime($order->getCreatedAt()))?></td>
-                                        <td><?=$order->getTotalPrice()?>đ</td>
+                                        <td><?=number_format($order->getTotalPrice())?>đ</td>
                                         <td>
                                             <?php
                                             if($order->getStatus()==1){

@@ -45,7 +45,7 @@
                                 if($relatedBook->getQuantity()!=0):
                             ?>
                             <li>
-                                <a class="cart" href="../controller/addCart.php?id=<?=$relatedBook->getId()?>&quantity=1"><i class="bi bi-shopping-cart-full"></i></a>
+                                <a class="cart" href="controller/addCart.php?id=<?=$relatedBook->getId()?>&quantity=1"><i class="bi bi-shopping-cart-full"></i></a>
                             </li>
                             <?php endif; ?>
                             <li>
