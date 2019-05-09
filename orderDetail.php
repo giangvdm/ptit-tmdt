@@ -146,7 +146,6 @@
         <?php include('include/footer.php'); ?>
         <!-- //Footer Area -->
 
-        <?php var_dump($_SESSION['orderList']); ?>
 
     </div>
     <!-- //Main wrapper -->

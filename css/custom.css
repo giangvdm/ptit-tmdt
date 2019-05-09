@@ -8,31 +8,42 @@
 **********************************************************************************/
 
 * {
-	font-family: "Arial", Helvetica, sans-serif;
+    font-family: "Arial", Helvetica, sans-serif;
+}
+
+
+.miniproduct {
+    max-height: 300px !important;
+    overflow-y: auto scroll !important;
 }
 
 .header__area .header__sidebar__right > li.shop_search {
-	padding-right: 25px;
+    padding-right: 25px;
 }
 
 .actions_inner {
-	margin-top: -30px;
+    margin-top: -30px;
 }
 
 .footer-static-top {
-	padding: 50px 0;
-}
-.product__content h4, .product-info h1,.product__info__main h1, td.product-name a {
-	text-transform: capitalize;
-	font-family: 'Helvetica Neue', Arial, sans-serif;
+    padding: 50px 0;
 }
 
-.slider-item, .bg-image--default {
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center center;
+.product__content h4,
+.product-info h1,
+.product__info__main h1,
+td.product-name a {
+    text-transform: capitalize;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.slider-item,
+.bg-image--default {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
 .bg-image--default {
-	background-image: url('../images/bg/1.jpg');
+    background-image: url('../images/bg/1.jpg');
 }

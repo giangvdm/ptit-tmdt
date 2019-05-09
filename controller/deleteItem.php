@@ -1,9 +1,9 @@
 <?php
 function calCart(){
     if(isset($_SESSION['cart'])){
+        $bookCount = 0;
+        $totalPrice = 0;
         foreach($_SESSION['cart'] as $key => $val ){
-            $bookCount = 0;
-            $totalPrice = 0;
             $bookCount += $val['qty'];
             $totalPrice += ($val['price']*$val['qty']);
         }
