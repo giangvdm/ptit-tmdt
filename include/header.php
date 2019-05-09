@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="total_amount text-right">
                                     <?php if(!empty($_SESSION['cart'])):?>
-                                    <span><?=$_SESSION['totalPrice']?>đ</span>
+                                    <span><?=number_format($_SESSION['totalPrice'])?>đ</span>
                                     <?php endif; ?>
                                 </div>
                                 <div class="mini_action checkout">
@@ -93,7 +93,7 @@
                                             </div>
                                             <div class="content">
                                                 <h6><a href="product-details.php"><?=$val['name']?></a></h6>
-                                                <span class="prize"><?=$val['price']?>đ</span>
+                                                <span class="prize"><?=number_format($val['price'])?>đ</span>
                                                 <div class="product_prize d-flex justify-content-between">
                                                     <span class="qun">Số lượng: <?=$val['qty']?></span>
                                                     <ul class="d-flex justify-content-end">

@@ -37,7 +37,7 @@ session_start();
                 }
                 $_SESSION['success'] = 'Tồn tại giỏ hàng ! Cập nhật mới thành công';
                 $_SESSION['cart'][$id]['name'] = $book->getTitle();
-                $_SESSION['cart'][$id]['price'] = $book->getPrice();
+                $_SESSION['cart'][$id]['price'] = $book->getPriceValue();
                 $_SESSION['cart'][$id]['image'] = $book->getImage();
                 $_SESSION['cart'][$id]['quantity'] = $book->getQuantity();
                 if($_SESSION['cart'][$id]['qty'] > $book->getQuantity()){
@@ -50,7 +50,7 @@ session_start();
                 $_SESSION['cart'][$id]['qty'] = $_GET['quantity'];
                 $_SESSION['success'] = 'Tạo mới giỏ hàng thành công';
                 $_SESSION['cart'][$id]['name'] = $book->getTitle();
-                $_SESSION['cart'][$id]['price'] = $book->getPrice();
+                $_SESSION['cart'][$id]['price'] = $book->getPriceValue();
                 $_SESSION['cart'][$id]['image'] = $book->getImage();
                 $_SESSION['cart'][$id]['quantity'] = $book->getQuantity();
                 if($_SESSION['cart'][$id]['qty'] > $book->getQuantity()){

@@ -92,11 +92,11 @@
                                     <?php foreach($_SESSION['cart'] as $key => $val ): ?>
                                     <tr>
                                         <form action="controller/addCart.php" method="get">
-                                            <td class="product-thumbnail"><a href="controller/BookController.php?id=<?=$key?>"><img style="width:80px;height:100px;"src="<?=$val['image']?>" alt="product img"></a></td>
+                                            <td class="product-thumbnail"><a href="controller/BookController.php?id=<?=$key?>"><img style="width:80px;height:100px;" src="<?=$val['image']?>" alt="product img"></a></td>
                                             <td class="product-name"><a href="controller/BookController.php?id=<?=$key?>"><?= $val['name']?></a></td>
                                             <td class="product-price"><span class="amount"><?= $val['price'] ?>đ</span></td>
                                             <td class="product-quantity"><input name="quantityUpdate" type="number" min=1 max=<?=$val['quantity']?> value="<?=$val['qty'] ?>"></td>
-                                            <td class="product-subtotal"><?= $val['price']*$val['qty']?>đ</td>
+                                            <td class="product-subtotal"><?= number_format($val['price']*$val['qty'])?>đ</td>
                                             <td class="product-remove"><button type="submit" class="btn btn-default btn-sm"><i class="fa fa-pencil-square"></i></button></td>
                                             <td class="product-remove"><a href="controller/deleteItem.php?id=<?=$key?>">X</a></td>
                                             <input type="hidden" name="id" value="<?=$key?>">

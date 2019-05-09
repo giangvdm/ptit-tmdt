@@ -31,12 +31,16 @@
 
         public function getPrice()
         {
+            return number_format($this->price);
+        }
+        
+        public function getPriceValue()
+        {
             return $this->price;
         }
-
         public function getOldPrice()
         {
-            return $this->oldPrice;
+            return number_format($this->oldPrice);
         }
  
         public function getQuantity()
